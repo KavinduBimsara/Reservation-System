@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Update;
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateUserRequest extends FormRequest
 {
@@ -32,5 +32,4 @@ class UpdateUserRequest extends FormRequest
             'password' => 'required|string|min:6|confirmed',
         ];
     }
-
 }

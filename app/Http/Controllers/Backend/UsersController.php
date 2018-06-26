@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\User;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\StoreUserRequest;
 use App\Http\Requests\Update\UpdateUserRequest;
-use App\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
@@ -20,7 +19,6 @@ class UsersController extends Controller
         $users = User::all();
 
         return view('layouts.Backend.ACL.Users.index', compact('users'));
-
     }
 
     /**
@@ -41,12 +39,9 @@ class UsersController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-
         $request->commit();
 
         return redirect()->route('users.index');
-
-
     }
 
     /**

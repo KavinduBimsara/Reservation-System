@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Store;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
 class StoreUserRequest extends FormRequest
 {
@@ -39,6 +38,4 @@ class StoreUserRequest extends FormRequest
            'password' => bcrypt($this->password)
         ]);
     }
-
-
 }
