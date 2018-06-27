@@ -1,7 +1,7 @@
 {
     "name": "Reservation-System",
     "description": "Hotel Management System for booking and reservation of rooms",
-    "keywords": ["framework", "laravel"],
+    "keywords": ["framework", "laravel", "reservation", "reservation system"],
     "license": "MIT",
     "type": "project",
     "require": {
