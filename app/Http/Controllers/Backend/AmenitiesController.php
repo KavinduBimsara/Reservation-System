@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Amenity;
 use Illuminate\Http\Request;
-
-use App\Http\Requests\Store\StoreAmenityRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Store\StoreAmenityRequest;
 
 class AmenitiesController extends Controller
 {
@@ -29,7 +28,7 @@ class AmenitiesController extends Controller
      */
     public function create()
     {
-       return view('layouts.Backend.Amenities.create');
+        return view('layouts.Backend.Amenities.create');
     }
 
     /**
@@ -68,7 +67,8 @@ class AmenitiesController extends Controller
     public function edit($id)
     {
         $amenity = Amenity::find($id);
-        return view('layouts.Backend.Amenities.edit',compact('amenity'));
+
+        return view('layouts.Backend.Amenities.edit', compact('amenity'));
     }
 
     /**
@@ -80,11 +80,12 @@ class AmenitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $amenity=Amenity::find($id);
+        $amenity = Amenity::find($id);
         $amenity->update([
             'name' => $request->name,
             'description'=>$request->description
         ]);
+
         return redirect()->route('amenities.index');
     }
 
@@ -100,6 +101,5 @@ class AmenitiesController extends Controller
         $amenity->delete();
 
         return redirect()->route('amenities.index');
-
     }
 }

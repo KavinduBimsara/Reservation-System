@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Amenity extends Model
 {
-	use SoftDeletes;
-    protected $fillable = ['name','description'];
+    use SoftDeletes;
+    protected $fillable = ['name', 'description'];
 }
