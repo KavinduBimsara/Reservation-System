@@ -111,12 +111,11 @@ return [
 
         [
             'text'        => 'Access Control List',
-            'url'         => '#',
             'icon'        => 'users',
             'submenu' => [
                 [
                     'text' => 'Users',
-                    'url'         => '#',
+                    'url'         => 'users',
                     'icon'        => 'users',
                 ],
 
@@ -134,6 +133,13 @@ return [
 
             ],
         ],
+
+        [
+            'text' => 'Amenities',
+            'url'  => 'amenities',
+            'icon' => 'wifi',
+        ],
+
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',

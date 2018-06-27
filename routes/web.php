@@ -19,4 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('users/{id}/delete', 'Backend\UsersController@destroy')->name('users.delete');
-Route::resource('users', 'Backend\UsersController');
+
+Route::resources([
+	'users'=> 'Backend\UsersController',
+	'amenities'=>'Backend\AmenitiesController'
+]);
