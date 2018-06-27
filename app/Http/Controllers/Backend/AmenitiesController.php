@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Update\UpdateAmenityRequest;
 use App\Models\Amenity;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\StoreAmenityRequest;
-use Illuminate\Validation\Rule;
+use App\Http\Requests\Update\UpdateAmenityRequest;
 
 class AmenitiesController extends Controller
 {
