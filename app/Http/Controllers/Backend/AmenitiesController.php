@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
+
 use App\Models\Amenity;
 use Illuminate\Http\Request;
+
+use App\Http\Requests\Store\StoreAmenityRequest;
 use App\Http\Controllers\Controller;
 
 class AmenitiesController extends Controller
@@ -26,7 +29,7 @@ class AmenitiesController extends Controller
      */
     public function create()
     {
-        //
+       return view('layouts.Backend.Amenities.create');
     }
 
     /**
@@ -35,9 +38,14 @@ class AmenitiesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAmenityRequest $request)
     {
-        //
+        Amenity::create([
+            'name' => $request->name,
+            'description'=>$request->description
+        ]);
+
+        return redirect()->route('amenities.index');
     }
 
     /**

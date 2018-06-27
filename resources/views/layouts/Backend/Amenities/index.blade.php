@@ -3,7 +3,7 @@
 @section('title', 'Reservation System | Amenities')
 
 @section('content_header')
-  <h1>Aminties</h1>
+  <h1>Amenties</h1>
 @stop
 
 @section('content')
