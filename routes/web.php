@@ -24,6 +24,6 @@ Route::get('amenities/{id}/delete', 'Backend\AmenitiesController@destroy')->name
 Route::get('amenities/{id}/edit', 'Backend\AmenitiesController@edit')->name('amenities.edit');
 
 Route::resources([
-	'users'=> 'Backend\UsersController',
-	'amenities'=>'Backend\AmenitiesController'
+    'users'=> 'Backend\UsersController',
+    'amenities'=>'Backend\AmenitiesController'
 ]);
