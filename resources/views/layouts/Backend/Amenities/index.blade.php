@@ -28,6 +28,7 @@
           </tr>
           </thead>
           <tbody>
+
           @foreach($amenities as $amenities)
           <tr>
             <td>{{ $amenities->name }}</td>
@@ -35,15 +36,22 @@
             <td>
               <div class="btn-group">
                 <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-bars"></i></button>
+                <i class="fa fa-bars"></i></button>
                 <ul class="dropdown-menu pull-right" role="menu">
-                  <li><a href="{{ route('amenities.edit', $amenities->id) }}"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
-                  <li><a onclick="return confirm('Are you sure ?')" href="#"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
+
+                <li><a href="{{route('amenities.edit',$amenities->id)}}"><i class="glyphicon glyphicon-edit">
+                  </i>Edit </a>
+                </li>
+
+                <li><a onclick="return confirm('Are you sure ?')" href="{{route('amenities.delete',$amenities->id) }}"><i class="glyphicon glyphicon-trash">
+                </i>Delete</a>
+                </li>
 
                 </ul>
               </div>
             </td>
             @endforeach
+
           </tr>
           </tbody></table>
       </div>

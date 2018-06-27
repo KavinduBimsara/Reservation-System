@@ -67,7 +67,8 @@ class AmenitiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $amenity = Amenity::find($id);
+        return view('layouts.Backend.Amenities.edit',compact('amenity'));
     }
 
     /**
@@ -79,7 +80,12 @@ class AmenitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $amenity=Amenity::find($id);
+        $amenity->update([
+            'name' => $request->name,
+            'description'=>$request->description
+        ]);
+        return redirect()->route('amenities.index');
     }
 
     /**
@@ -90,6 +96,10 @@ class AmenitiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $amenity = Amenity::find($id);
+        $amenity->delete();
+
+        return redirect()->route('amenities.index');
+
     }
 }
