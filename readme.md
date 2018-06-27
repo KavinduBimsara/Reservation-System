@@ -1,4 +1,4 @@
-# Reservation System ![StyleCI](https://github.styleci.io/repos/138739840/shield?branch=master)
+# Reservation System ![StyleCI](https://github.styleci.io/repos/138739840/shield?branch=master) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 This is an open source Reservation system project that was built using Laravel 5.5.
 
 ## Installation
