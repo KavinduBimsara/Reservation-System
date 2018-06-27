@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
+
 use App\Models\Amenity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
