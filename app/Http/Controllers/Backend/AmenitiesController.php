@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\Update\UpdateAmenityRequest;
 use App\Models\Amenity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\StoreAmenityRequest;
+use Illuminate\Validation\Rule;
 
 class AmenitiesController extends Controller
 {
@@ -22,7 +24,7 @@ class AmenitiesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the amenity create form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -32,9 +34,9 @@ class AmenitiesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store the newly created amenity resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param StoreAmenityRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreAmenityRequest $request)
@@ -59,7 +61,7 @@ class AmenitiesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the amenity form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -72,15 +74,21 @@ class AmenitiesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the amenity resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param UpdateAmenityRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $amenity = Amenity::find($id);
+
+        $request->validate([
+            'name'        => ['required', 'string', 'max:255', Rule::unique('amenities')->ignore($amenity->id)],
+            'description' => 'required|string|max:255',
+        ]);
+
         $amenity->update([
             'name' => $request->name,
             'description'=>$request->description
@@ -90,7 +98,7 @@ class AmenitiesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified amenity resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -98,6 +106,7 @@ class AmenitiesController extends Controller
     public function destroy($id)
     {
         $amenity = Amenity::find($id);
+
         $amenity->delete();
 
         return redirect()->route('amenities.index');
