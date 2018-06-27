@@ -14,7 +14,8 @@
       <div class="box-header ">
         <h3 class="box-title">All Amenities</h3>
         <div class="box-tools pull-left">
-          <a href="{{ route('amenities.create') }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i>Create</a>
+          <a href="{{ route('amenities.create') }}" class="btn btn-default btn-sm"><i
+                    class="glyphicon glyphicon-plus"></i>Create</a>
         </div>
       </div>
       <!-- /.box-header -->
@@ -24,38 +25,48 @@
           <tr>
             <th>name</th>
             <th>Description</th>
+            <th>Created</th>
+            <th>Updated</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
 
           @foreach($amenities as $amenities)
-          <tr>
-            <td>{{ $amenities->name }}</td>
-            <td>{{ $amenities->description }}</td>
-            <td>
-              <div class="btn-group">
-                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-bars"></i></button>
-                <ul class="dropdown-menu pull-right" role="menu">
 
-                <li><a href="{{route('amenities.edit',$amenities->id)}}"><i class="glyphicon glyphicon-edit">
-                  </i>Edit </a>
-                </li>
+            <tr>
+              <td>{{ $amenities->name }}</td>
+              <td>{{ $amenities->description }}</td>
+              <td>{{ $amenities->created_at }}</td>
+              <td>{{ $amenities->updated_at }}</td>
+              <td>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
+                          aria-expanded="false">
+                    <i class="fa fa-bars"></i>
+                  </button>
+                  <ul class="dropdown-menu pull-right" role="menu">
 
-                <li><a onclick="return confirm('Are you sure ?')" href="{{route('amenities.delete',$amenities->id) }}"><i class="glyphicon glyphicon-trash">
-                </i>Delete</a>
-                </li>
+                    <li><a href="{{route('amenities.edit',$amenities->id)}}"><i class="glyphicon glyphicon-edit">
+                        </i>Edit </a>
+                    </li>
 
-                </ul>
-              </div>
-            </td>
-            @endforeach
+                    <li><a onclick="return confirm('Are you sure ?')"
+                           href="{{route('amenities.delete',$amenities->id) }}"><i class="glyphicon glyphicon-trash">
+                        </i>Delete</a>
+                    </li>
 
-          </tr>
-          </tbody></table>
+                  </ul>
+                </div>
+              </td>
+              @endforeach
+            </tr>
+          </tbody>
+        </table>
       </div>
       <!-- /.box-body -->
+      <div class="panel-footer"></div>
+
     </div>
     <!-- /.box -->
   </div>

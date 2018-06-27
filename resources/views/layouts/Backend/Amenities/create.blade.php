@@ -1,10 +1,7 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Reservation System | Amenities - Create')
 
-@section('content_header')
-  <h1>Dashboard</h1>
-@stop
 
 @section('content')
 <div class="row">
@@ -18,8 +15,7 @@
         <form
                 action="{{ route('amenities.store') }}"
                 method="POST"
-                id="form"
-        >
+                id="form">
 
           {{ csrf_field() }}
 

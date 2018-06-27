@@ -1,24 +1,26 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
-
-@section('content_header')
-  <h1>Dashboard</h1>
-@stop
+@section('title', 'Reservation System | Amenities | Edit ' . $amenity->name)
 
 @section('content')
   <div class="row">
 
-    @foreach($errors as $error)
-      {{ $error }}
-      @endforeach
     <div class="col-md-7 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title text-center">Create new User Account</h3>
+          <h3 class="panel-title text-center">Edit {{ $amenity->name }} Amenity</h3>
         </div>
 
         <div class="panel-body ">
+          @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
           <form
                   action="{{ route('amenities.update', $amenity->id) }}"
                   method="POST"
