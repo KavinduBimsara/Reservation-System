@@ -65,7 +65,9 @@
         </table>
       </div>
       <!-- /.box-body -->
-      <div class="panel-footer"></div>
+      <div class="panel-footer">
+        Details of all created Amenities
+      </div>
 
     </div>
     <!-- /.box -->
