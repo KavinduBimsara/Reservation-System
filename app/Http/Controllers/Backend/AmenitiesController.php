@@ -8,9 +8,36 @@ use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\StoreAmenityRequest;
 use App\Http\Requests\Update\UpdateAmenityRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class AmenitiesController extends Controller
 {
+    public function dataTable()
+    {
+        $amenities = Amenity::select(['id', 'name', 'description', 'created_at', 'updated_at']);
+
+        return Datatables::of($amenities)
+            ->editColumn('created_at', function ($date) {
+                return $date->created_at->format('jS F, Y ');
+            })
+            ->editColumn('updated_at', function ($date) {
+                return $date->updated_at ? $date->updated_at->format('jS F, Y ') : "";
+            })
+            ->addColumn('action', function ($amenity) {
+                return '
+            <div class="btn-group">
+              <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
+                      aria-expanded="false">
+                <i class="fa fa-bars"></i></button>
+              <ul class="dropdown-menu pull-right" role="menu">
+               <li><a  href="'. route('amenities.edit', $amenity->id) .'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
+               <li><a onclick="return confirm(\'Are you sure ?\')" href="'. route('amenities.delete', $amenity->id) .'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
+
+              </ul>
+            </div>';
+            })->make();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +45,7 @@ class AmenitiesController extends Controller
      */
     public function index()
     {
-        $amenities = Amenity::all();
-
-        return view('layouts.Backend.Amenities.index', compact('amenities'));
+        return view('layouts.Backend.Amenities.index');
     }
 
     /**
@@ -68,7 +93,7 @@ class AmenitiesController extends Controller
      */
     public function edit($id)
     {
-        $amenity = Amenity::find($id);
+        $amenity = Amenity::findOrFail($id);
 
         return view('layouts.Backend.Amenities.edit', compact('amenity'));
     }
@@ -76,7 +101,7 @@ class AmenitiesController extends Controller
     /**
      * Update the amenity resource in storage.
      *
-     * @param UpdateAmenityRequest $request
+     * @param Request $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
@@ -105,7 +130,7 @@ class AmenitiesController extends Controller
      */
     public function destroy($id)
     {
-        $amenity = Amenity::find($id);
+        $amenity = Amenity::findOrFail($id);
 
         $amenity->delete();
 

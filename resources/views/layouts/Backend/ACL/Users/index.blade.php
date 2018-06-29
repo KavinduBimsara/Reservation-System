@@ -54,7 +54,6 @@
               processing: true,
               serverSide: true,
               responsive: true,
-              select: true,
               ajax: '{!! route('users.datatable') !!}',
               columns: [
                   {data: 'name', name: 'name'},

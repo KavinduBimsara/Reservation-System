@@ -27,7 +27,7 @@ class UsersController extends Controller
                 <i class="fa fa-bars"></i></button>
               <ul class="dropdown-menu pull-right" role="menu">
                <li><a  href="'. route('users.edit', $user->id) .'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
-               <li><a onclick="return confirm(\'Are you sure ?\')" href="'. route('users.destroy', $user->id) .'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
+               <li><a onclick="return confirm(\'Are you sure ?\')" href="'. route('users.delete', $user->id) .'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
 
               </ul>
             </div>';
