@@ -6,9 +6,18 @@ use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\StoreUserRequest;
 use App\Http\Requests\Update\UpdateUserRequest;
+use Yajra\Datatables\Datatables;
 
 class UsersController extends Controller
 {
+
+    public function dataTable()
+    {
+        $users = User::select(['id', 'name', 'email', 'created_at']);
+
+        return Datatables::of($users)->make();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +25,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-
-        return view('layouts.Backend.ACL.Users.index', compact('users'));
+        return view('layouts.Backend.ACL.Users.index');
     }
 
     /**
@@ -34,7 +41,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUserRequest $request)
@@ -47,7 +54,7 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -58,7 +65,7 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -80,7 +87,7 @@ class UsersController extends Controller
         $user = User::find($id);
 
         $user->update([
-            'name' => $request->name,
+            'name'  => $request->name,
             'email' => $request->email,
 //            'password' => bcrypt($request->password)
         ]);
@@ -91,7 +98,7 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

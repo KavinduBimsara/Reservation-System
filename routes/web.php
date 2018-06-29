@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('users/{id}/delete', 'Backend\UsersController@destroy')->name('users.delete');
 Route::get('amenities/{id}/delete', 'Backend\AmenitiesController@destroy')->name('amenities.delete');
 
+Route::get('users/datatable', 'Backend\UsersController@dataTable')->name('users.datatable');
+
 Route::resources([
     'users'=> 'Backend\UsersController',
     'amenities'=>'Backend\AmenitiesController'
