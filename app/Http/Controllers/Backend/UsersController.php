@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Backend;
 
 use App\User;
+use Yajra\Datatables\Datatables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\StoreUserRequest;
 use App\Http\Requests\Update\UpdateUserRequest;
-use Yajra\Datatables\Datatables;
 
 class UsersController extends Controller
 {
-
     public function dataTable()
     {
         $users = User::select(['id', 'name', 'email', 'created_at']);
@@ -26,8 +25,8 @@ class UsersController extends Controller
                       aria-expanded="false">
                 <i class="fa fa-bars"></i></button>
               <ul class="dropdown-menu pull-right" role="menu">
-               <li><a  href="'. route('users.edit', $user->id) .'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
-               <li><a onclick="return confirm(\'Are you sure ?\')" href="'. route('users.delete', $user->id) .'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
+               <li><a  href="'.route('users.edit', $user->id).'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
+               <li><a onclick="return confirm(\'Are you sure ?\')" href="'.route('users.delete', $user->id).'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
 
               </ul>
             </div>';

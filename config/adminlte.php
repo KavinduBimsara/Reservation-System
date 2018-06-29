@@ -140,7 +140,6 @@ return [
             'icon' => 'wifi',
         ],
 
-
     ],
 
     /*

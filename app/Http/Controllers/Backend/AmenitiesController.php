@@ -6,9 +6,8 @@ use App\Models\Amenity;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Store\StoreAmenityRequest;
-use App\Http\Requests\Update\UpdateAmenityRequest;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\Store\StoreAmenityRequest;
 
 class AmenitiesController extends Controller
 {
@@ -21,7 +20,7 @@ class AmenitiesController extends Controller
                 return $date->created_at->format('jS F, Y ');
             })
             ->editColumn('updated_at', function ($date) {
-                return $date->updated_at ? $date->updated_at->format('jS F, Y ') : "";
+                return $date->updated_at ? $date->updated_at->format('jS F, Y ') : '';
             })
             ->addColumn('action', function ($amenity) {
                 return '
@@ -30,8 +29,8 @@ class AmenitiesController extends Controller
                       aria-expanded="false">
                 <i class="fa fa-bars"></i></button>
               <ul class="dropdown-menu pull-right" role="menu">
-               <li><a  href="'. route('amenities.edit', $amenity->id) .'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
-               <li><a onclick="return confirm(\'Are you sure ?\')" href="'. route('amenities.delete', $amenity->id) .'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
+               <li><a  href="'.route('amenities.edit', $amenity->id).'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
+               <li><a onclick="return confirm(\'Are you sure ?\')" href="'.route('amenities.delete', $amenity->id).'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
 
               </ul>
             </div>';
