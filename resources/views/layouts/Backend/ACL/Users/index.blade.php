@@ -31,6 +31,7 @@
             <th>Username</th>
             <th>Email</th>
             <th>Date Created</th>
+            <th>Action</th>
           </tr>
           </thead>
         </table>
@@ -52,11 +53,14 @@
           $('#table').DataTable({
               processing: true,
               serverSide: true,
+              responsive: true,
+              select: true,
               ajax: '{!! route('users.datatable') !!}',
               columns: [
                   {data: 'name', name: 'name'},
                   {data: 'email', name: 'email'},
                   {data: 'created_at', name: 'created_at'},
+                  {data: 'action', name: 'action'},
               ]
 
           });
