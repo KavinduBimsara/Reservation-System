@@ -14,7 +14,7 @@ class AddSlugToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('slug');
+            $table->string('slug')->default('');
         });
     }
 

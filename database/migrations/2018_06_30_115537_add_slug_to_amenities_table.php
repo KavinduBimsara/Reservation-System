@@ -14,7 +14,7 @@ class AddSlugToAmenitiesTable extends Migration
     public function up()
     {
         Schema::table('amenities', function (Blueprint $table) {
-            $table->string('slug');
+            $table->string('slug')->default('');
         });
     }
 
