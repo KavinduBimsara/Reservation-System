@@ -9,6 +9,17 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+require('toastr');
+
+require('datatables');
+
+require('bootstrap-datepicker');
+
+require('select2');
+
+require('jquery-slimscroll');
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
