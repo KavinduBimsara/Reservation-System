@@ -11,6 +11,11 @@ use App\Http\Requests\Update\UpdateUserRequest;
 
 class UsersController extends Controller
 {
+
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
     public function dataTable()
     {
         $users = User::select(['id', 'name', 'email', 'created_at']);

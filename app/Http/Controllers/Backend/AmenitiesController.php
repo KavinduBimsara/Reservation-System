@@ -11,6 +11,11 @@ use App\Http\Requests\Store\StoreAmenityRequest;
 
 class AmenitiesController extends Controller
 {
+
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
     public function dataTable()
     {
         $amenities = Amenity::select(['id', 'name', 'description', 'created_at', 'updated_at']);
