@@ -87,7 +87,7 @@ class RoomsController extends Controller
             'description'  => $request->description,
             'room_type_id' => $request->room_type_id,
         ]);
-        
+
         $room->amenity()->attach($request->amenities);
 
         return redirect()->route('rooms.index');
