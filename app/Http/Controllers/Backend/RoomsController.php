@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Store\StoreRoomRequest;
-use App\Http\Requests\Update\UpdateRoomRequest;
-use App\Models\Amenity;
 use App\Models\Room;
+<<<<<<< HEAD
 use Illuminate\Http\Request;
+=======
+use App\Models\Amenity;
+>>>>>>> 140090387584d971fca3c5bf55fdf23ccc253ec6
 use App\Http\Controllers\Controller;
 use App\Models\RoomType;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\Store\StoreRoomRequest;
+use App\Http\Requests\Update\UpdateRoomRequest;
 
 class RoomsController extends Controller
 {
-
     /**
-     * Fetch JSON listing of the room resource
+     * Fetch JSON listing of the room resource.
      * @return mixed
      * @throws \Exception
      */
@@ -41,8 +43,8 @@ class RoomsController extends Controller
                       aria-expanded="false">
                 <i class="fa fa-bars"></i></button>
               <ul class="dropdown-menu pull-right" role="menu">
-               <li><a  href="' . route('rooms.edit', $room->slug) . '"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
-               <li><a onclick="return confirm(\'Are you sure ?\')" href="' . route('rooms.delete', $room->slug) . '"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
+               <li><a  href="'.route('rooms.edit', $room->slug).'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
+               <li><a onclick="return confirm(\'Are you sure ?\')" href="'.route('rooms.delete', $room->slug).'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
 
               </ul>
             </div>';
@@ -79,12 +81,19 @@ class RoomsController extends Controller
      */
     public function store(StoreRoomRequest $request)
     {
+<<<<<<< HEAD
 //        dd($request->all());
         $room = Room::create([
             'room_no'      => $request->room_no,
             'name'         => $request->name,
             'description'  => $request->description,
             'room_type_id' => $request->room_type,
+=======
+        $room = Room::create([
+            'room_no'     => $request->room_no,
+            'name'        => $request->name,
+            'description' => $request->description,
+>>>>>>> 140090387584d971fca3c5bf55fdf23ccc253ec6
         ]);
 
         $room->amenity()->attach($request->amenities);
@@ -100,7 +109,6 @@ class RoomsController extends Controller
      */
     public function show($slug)
     {
-
     }
 
     /**

@@ -11,7 +11,6 @@ use App\Http\Requests\Store\StoreAmenityRequest;
 
 class AmenitiesController extends Controller
 {
-
     /**
      * @return mixed
      * @throws \Exception
@@ -59,7 +58,6 @@ class AmenitiesController extends Controller
      */
     public function create()
     {
-
         return view('layouts.Backend.Amenities.create');
     }
 

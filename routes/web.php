@@ -19,7 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::group([
     'namespace' => 'Backend',
     'prefix'    => 'admin'
@@ -43,5 +42,4 @@ Route::group([
         'rooms'     => 'RoomsController',
         'room-type' => 'RoomTypeController'
     ]);
-
 });
