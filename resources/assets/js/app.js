@@ -17,7 +17,8 @@ window.datatables_bs = require( 'datatables.net-bs' );
 
 require('bootstrap-datepicker');
 
-// require('jquery-slimscroll');
+require('select2');
+
 
 
 /**

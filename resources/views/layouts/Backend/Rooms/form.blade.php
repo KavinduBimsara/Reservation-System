@@ -17,7 +17,7 @@
 
 <div class="form-group col-md-12">
   <label for="email">Amenity</label>
-  <select class="form-control" name="amenities[]">
+  <select class="form-control" name="amenities[]" id="amenities" multiple>
     @foreach($amenities as $amenity)
       <option value="{{ $amenity->id }}"> {{ $amenity->name }}</option>
     @endforeach

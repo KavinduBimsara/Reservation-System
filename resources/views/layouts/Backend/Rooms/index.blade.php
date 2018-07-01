@@ -5,7 +5,7 @@
 @section('content')
 
   <div class="col-md-12">
-    <div class="box box-primary with-border no-padding">
+    <div class="box box-success with-border no-padding">
 
       <div class="box-header with-border">
         <a href="{{ route('rooms.create') }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i> Room</a>
@@ -38,7 +38,7 @@
         </table>
       </div>
       <!-- /.box-body -->
-      <div class="panel-footer">
+      <div class="box-footer bg-gray-light">
         Details of All Rooms
       </div>
 

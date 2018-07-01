@@ -5,7 +5,7 @@
 @section('content')
 
   <div class="col-md-12">
-    <div class="box box-primary with-border no-padding">
+    <div class="box box-success with-border no-padding">
 
       <div class="box-header with-border">
         <a href="{{ route('amenities.create') }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i> Amenity</a>
@@ -38,8 +38,8 @@
         </table>
       </div>
       <!-- /.box-body -->
-      <div class="panel-footer">
-        Details of all created Amenities
+      <div class="box-footer bg-gray-light">
+        Details of All Amenities
       </div>
 
     </div>

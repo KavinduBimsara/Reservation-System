@@ -32,3 +32,10 @@
     </div>
 
 @stop
+
+@section('js')
+
+      <script>
+        $('#amenities').select2();
+      </script>
+@stop
