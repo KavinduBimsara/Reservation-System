@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\User;
+use Illuminate\Support\Facades\Session;
 use Yajra\Datatables\Datatables;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\StoreUserRequest;
@@ -50,6 +51,7 @@ class UsersController extends Controller
      */
     public function create()
     {
+        Session::flush('success', 'huyi');
         return view('layouts.Backend.ACL.Users.create');
     }
 

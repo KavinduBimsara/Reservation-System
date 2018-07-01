@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
-@yield('title', config('adminlte.title', 'AdminLTE 2'))
-@yield('title_postfix', config('adminlte.title_postfix', ''))</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
+  <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
+    @yield('title', config('adminlte.title', 'AdminLTE 2'))
+    @yield('title_postfix', config('adminlte.title_postfix', ''))</title>
 
-    @if(config('adminlte.plugins.select2'))
-        <!-- Select2 -->
-        {{--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">--}}
-    @endif
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/AdminLTE.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    @if(config('adminlte.plugins.datatables'))
-        <!-- DataTables -->
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
-    @endif
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/AdminLTE.min.css') }}">
 
     @yield('adminlte_css')
 
@@ -37,30 +30,16 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition @yield('body_class')">
-<div id="app">
+@yield('body')
 
-    @yield('body')
+  <script src="{{ asset('js/manifest.js') }}"></script>
+  <script src="{{ asset('js/vendor.js') }}"></script>
+  <script src="{{ asset('js/app.js') }}"></script>
 
-</div>
-<script src="{{ asset('js/app.js') }}"></script>
-
-@if(config('adminlte.plugins.select2'))
-    <!-- Select2 -->
-
-@endif
-
-@if(config('adminlte.plugins.datatables'))
-    <!-- DataTables -->
-{{--    <script src="{{ asset('vendor/DataTables/datatables.js') }}"></script>--}}
-@endif
-
-@if(config('adminlte.plugins.chartjs'))
-    <!-- ChartJS -->
-    {{--<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>--}}
-@endif
 
 @yield('adminlte_js')
 

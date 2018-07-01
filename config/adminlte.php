@@ -115,7 +115,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Users',
-                    'url'         => 'users',
+                    'url'         => 'admin/users',
                     'icon'        => 'users',
                 ],
 
@@ -136,7 +136,7 @@ return [
 
         [
             'text' => 'Amenities',
-            'url'  => 'amenities',
+            'url'  => 'admin/amenities',
             'icon' => 'wifi',
         ],
 
@@ -175,7 +175,7 @@ return [
 
     'plugins' => [
         'datatables' => true,
-        'select2'    => false,
+        'select2'    => true,
         'chartjs'    => false,
     ],
 ];

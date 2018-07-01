@@ -54,6 +54,7 @@ class AmenitiesController extends Controller
      */
     public function create()
     {
+
         return view('layouts.Backend.Amenities.create');
     }
 

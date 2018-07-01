@@ -9,13 +9,15 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-
 // toastr js
-@import "~toastr/build/toastr.css";
+@import "~toastr/toastr.scss";
+
+// DataTables Bootstrap theme
+@import "~datatables.net-bs/css/dataTables.bootstrap.css";
 
 // Bootstrap-datepicker
 @import "~bootstrap-datepicker/dist/css/bootstrap-datepicker.css";
 
 // Select2
-@import "~select2/dist/css/select2.css";
+@import "~select2/src/scss/core";
 

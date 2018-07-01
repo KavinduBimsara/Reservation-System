@@ -9,15 +9,15 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-require('toastr');
+window.toastr = require('toastr');
 
-require('datatables');
+window.datatables    = require( 'datatables.net' );
+
+window.datatables_bs = require( 'datatables.net-bs' );
 
 require('bootstrap-datepicker');
 
-require('select2');
-
-require('jquery-slimscroll');
+// require('jquery-slimscroll');
 
 
 /**
