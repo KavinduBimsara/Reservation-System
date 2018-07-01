@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Room;
-<<<<<<< HEAD
 use Illuminate\Http\Request;
-=======
+
 use App\Models\Amenity;
->>>>>>> 140090387584d971fca3c5bf55fdf23ccc253ec6
+
 use App\Http\Controllers\Controller;
 use App\Models\RoomType;
 use Illuminate\Validation\Rule;
@@ -81,21 +80,14 @@ class RoomsController extends Controller
      */
     public function store(StoreRoomRequest $request)
     {
-<<<<<<< HEAD
-//        dd($request->all());
+
         $room = Room::create([
             'room_no'      => $request->room_no,
             'name'         => $request->name,
             'description'  => $request->description,
-            'room_type_id' => $request->room_type,
-=======
-        $room = Room::create([
-            'room_no'     => $request->room_no,
-            'name'        => $request->name,
-            'description' => $request->description,
->>>>>>> 140090387584d971fca3c5bf55fdf23ccc253ec6
+            'room_type_id' => $request->room_type_id,
         ]);
-
+        
         $room->amenity()->attach($request->amenities);
 
         return redirect()->route('rooms.index');
