@@ -28,14 +28,17 @@ Route::group([
     // DATATABLE ROUTES
     Route::get('users/datatable', 'UsersController@dataTable')->name('users.datatable');
     Route::get('amenities/datatable', 'AmenitiesController@dataTable')->name('amenities.datatable');
+    Route::get('rooms/datatable', 'RoomsController@dataTable')->name('rooms.datatable');
 
     // Delete routes
-    Route::get('users/{id}/delete', 'Backend\UsersController@destroy')->name('users.delete');
-    Route::get('amenities/{id}/delete', 'Backend\AmenitiesController@destroy')->name('amenities.delete');
+    Route::get('users/{id}/delete', 'UsersController@destroy')->name('users.delete');
+    Route::get('amenities/{id}/delete', 'AmenitiesController@destroy')->name('amenities.delete');
+    Route::get('rooms/{slug}/delete', 'RoomsController@destroy')->name('rooms.delete');
 
     Route::resources([
         'users'     => 'UsersController',
-        'amenities' => 'AmenitiesController'
+        'amenities' => 'AmenitiesController',
+        'rooms'     => 'RoomsController'
     ]);
 
 });

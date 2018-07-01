@@ -140,6 +140,12 @@ return [
             'icon' => 'wifi',
         ],
 
+        [
+            'text' => 'Rooms',
+            'url'  => 'admin/rooms',
+            'icon' => 'bed',
+        ],
+
     ],
 
     /*
