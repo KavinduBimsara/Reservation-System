@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Store\StoreRoomRequest;
-use App\Http\Requests\Update\UpdateRoomRequest;
-use App\Models\Amenity;
 use App\Models\Room;
+use App\Models\Amenity;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\Store\StoreRoomRequest;
+use App\Http\Requests\Update\UpdateRoomRequest;
 
 class RoomsController extends Controller
 {
-
     /**
-     * Fetch JSON listing of the room resource
+     * Fetch JSON listing of the room resource.
      * @return mixed
      * @throws \Exception
      */
@@ -35,8 +34,8 @@ class RoomsController extends Controller
                       aria-expanded="false">
                 <i class="fa fa-bars"></i></button>
               <ul class="dropdown-menu pull-right" role="menu">
-               <li><a  href="' . route('rooms.edit', $room->slug) . '"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
-               <li><a onclick="return confirm(\'Are you sure ?\')" href="' . route('rooms.delete', $room->slug) . '"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
+               <li><a  href="'.route('rooms.edit', $room->slug).'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
+               <li><a onclick="return confirm(\'Are you sure ?\')" href="'.route('rooms.delete', $room->slug).'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
 
               </ul>
             </div>';
@@ -71,7 +70,7 @@ class RoomsController extends Controller
      */
     public function store(StoreRoomRequest $request)
     {
-        $room= Room::create([
+        $room = Room::create([
             'room_no'     => $request->room_no,
             'name'        => $request->name,
             'description' => $request->description,
@@ -90,7 +89,6 @@ class RoomsController extends Controller
      */
     public function show($slug)
     {
-
     }
 
     /**
