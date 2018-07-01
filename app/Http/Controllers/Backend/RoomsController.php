@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Room;
-use Illuminate\Http\Request;
-
 use App\Models\Amenity;
-
-use App\Http\Controllers\Controller;
 use App\Models\RoomType;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\Store\StoreRoomRequest;
 use App\Http\Requests\Update\UpdateRoomRequest;
@@ -80,7 +78,6 @@ class RoomsController extends Controller
      */
     public function store(StoreRoomRequest $request)
     {
-
         $room = Room::create([
             'room_no'      => $request->room_no,
             'name'         => $request->name,
