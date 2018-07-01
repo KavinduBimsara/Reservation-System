@@ -18,7 +18,7 @@ class AmenitiesController extends Controller
      */
     public function dataTable()
     {
-        $amenities = Amenity::select(['id', 'name', 'description', 'created_at', 'updated_at']);
+        $amenities = Amenity::select(['id', 'name', 'description', 'created_at', 'updated_at', 'slug']);
 
         return Datatables::of($amenities)
             ->editColumn('created_at', function ($date) {
@@ -34,8 +34,8 @@ class AmenitiesController extends Controller
                       aria-expanded="false">
                 <i class="fa fa-bars"></i></button>
               <ul class="dropdown-menu pull-right" role="menu">
-               <li><a  href="'.route('amenities.edit', $amenity->id).'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
-               <li><a onclick="return confirm(\'Are you sure ?\')" href="'.route('amenities.delete', $amenity->id).'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
+               <li><a  href="'.route('amenities.edit', $amenity->slug).'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
+               <li><a onclick="return confirm(\'Are you sure ?\')" href="'.route('amenities.delete', $amenity->slug).'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
 
               </ul>
             </div>';
@@ -96,9 +96,9 @@ class AmenitiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $amenity = Amenity::findOrFail($id);
+        $amenity = Amenity::findBySlugOrFail($slug);
 
         return view('layouts.Backend.Amenities.edit', compact('amenity'));
     }
@@ -110,9 +110,9 @@ class AmenitiesController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        $amenity = Amenity::find($id);
+        $amenity = Amenity::findBySlugOrFail($slug);
 
         $request->validate([
             'name'        => ['required', 'string', 'max:255', Rule::unique('amenities')->ignore($amenity->id)],

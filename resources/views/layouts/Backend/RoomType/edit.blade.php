@@ -8,22 +8,21 @@
     <div class="col-md-7 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title text-center">Create Room</h3>
+          <h3 class="panel-title text-center">Edit {{ $roomType->name }} Room</h3>
         </div>
 
         <div class="panel-body overflow-hidden">
           <form
-                  action="{{ route('rooms.store') }}"
+                  action="{{ route('room-type.update', $roomType->slug) }}"
                   method="POST"
                   id="form">
 
             {{ csrf_field() }}
+            {{ method_field('PUT') }}
 
-            @include('layouts.Backend.Rooms.form', [
-             'submitButtonText' => 'Create',
-             'room' => new \App\Models\Room,
-             'amenities' => $amenities,
-             'roomTypes' => $roomTypes,
+            @include('layouts.Backend.RoomType.form', [
+             'submitButtonText' => 'Update',
+             'roomType' => $roomType
             ])
 
           </form>
@@ -32,12 +31,4 @@
 
     </div>
 
-@stop
-
-@section('js')
-
-      <script>
-        $('#amenities').select2();
-        $('#roomType').select2();
-      </script>
 @stop

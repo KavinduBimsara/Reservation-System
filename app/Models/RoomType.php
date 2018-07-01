@@ -5,13 +5,12 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Amenity extends Model
+class RoomType extends Model
 {
-    use SoftDeletes, Sluggable, SluggableScopeHelpers;
+    protected $fillable = ['name', 'description', 'slug', 'capacity'];
 
-    protected $fillable = ['name', 'description'];
+    use Sluggable, SluggableScopeHelpers;
 
     /**
      * Return the sluggable configuration array for this model.
@@ -29,6 +28,6 @@ class Amenity extends Model
 
     public function room()
     {
-        return $this->belongsToMany(Room::class, 'amenity_room')->withTimestamps();
+        return $this->hasMany(Room::class, 'room_type_id');
     }
 }

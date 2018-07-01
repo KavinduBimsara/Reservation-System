@@ -19,6 +19,7 @@ class CreateRoomsTable extends Migration
             $table->string('name');
             $table->string('slug')->default('');
             $table->text('description');
+
             $table->softDeletes();
             $table->timestamps();
         });

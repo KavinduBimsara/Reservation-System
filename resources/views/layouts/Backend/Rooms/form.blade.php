@@ -14,6 +14,15 @@
   <input type="text" class="form-control" name="description" value="{{ $room->description }}">
 </div>
 
+<div class="form-group col-md-12">
+  <label for="email">Room Type</label>
+  <select class="form-control" name="room_type_id" id="roomType">
+    @foreach($roomTypes as $roomType)
+      <option value="{{ $roomType->id }}"> {{ $roomType->name }} | Room Capacity: {{$roomType->capacity  }} guests</option>
+  @endforeach
+  </select>
+</div>
+
 
 <div class="form-group col-md-12">
   <label for="email">Amenity</label>

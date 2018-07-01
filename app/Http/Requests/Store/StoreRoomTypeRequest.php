@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Update;
+namespace App\Http\Requests\Store;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRoomRequest extends FormRequest
+class StoreRoomTypeRequest extends FormRequest
 {
 
     /**
@@ -25,9 +25,9 @@ class UpdateRoomRequest extends FormRequest
     public function rules()
     {
         return [
-            'room_no'     => 'required|max:255',
-            'name'        => 'required|string|max:255',
-            'description' => 'required',
+            'name'         => 'required|string|max:255',
+            'description'  => 'required|string|max:255',
+            'capacity'     => 'required|max:255',
         ];
     }
 }

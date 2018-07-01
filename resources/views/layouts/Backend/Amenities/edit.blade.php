@@ -22,7 +22,7 @@
             </div>
           @endif
           <form
-                  action="{{ route('amenities.update', $amenity->id) }}"
+                  action="{{ route('amenities.update', $amenity->slug) }}"
                   method="POST"
                   id="form"
           >

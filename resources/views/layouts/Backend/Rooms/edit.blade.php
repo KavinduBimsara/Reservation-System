@@ -12,6 +12,9 @@
         </div>
 
         <div class="panel-body overflow-hidden">
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
           <form
                   action="{{ route('rooms.update', $room->slug) }}"
                   method="POST"
@@ -23,7 +26,8 @@
             @include('layouts.Backend.Rooms.form', [
              'submitButtonText' => 'Update',
              'room' => $room,
-             'amenities' => $amenities
+             'amenities' => $amenities,
+             'roomTypes' => $roomTypes
             ])
 
           </form>
@@ -32,4 +36,12 @@
 
     </div>
 
+@stop
+
+    @section('js')
+
+      <script>
+          $('#amenities').select2();
+
+      </script>
 @stop

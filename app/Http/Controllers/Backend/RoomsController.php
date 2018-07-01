@@ -6,7 +6,10 @@ use App\Http\Requests\Store\StoreRoomRequest;
 use App\Http\Requests\Update\UpdateRoomRequest;
 use App\Models\Amenity;
 use App\Models\Room;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\RoomType;
+use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
 
 class RoomsController extends Controller
@@ -19,7 +22,7 @@ class RoomsController extends Controller
      */
     public function dataTable()
     {
-        $rooms = Room::latest();
+        $rooms = Room::with('roomType')->latest();
 
         return DataTables::of($rooms)
             ->editColumn('created_at', function ($date) {
@@ -27,6 +30,9 @@ class RoomsController extends Controller
             })
             ->editColumn('updated_at', function ($date) {
                 return $date->updated_at->format('j F, Y.  h:m:s');
+            })
+            ->editColumn('room_type_id', function ($type) {
+                return $type->roomType->name;
             })
             ->addColumn('action', function ($room) {
                 return '
@@ -60,7 +66,9 @@ class RoomsController extends Controller
      */
     public function create()
     {
-        return view('layouts.Backend.Rooms.create')->with('amenities', Amenity::all());
+        return view('layouts.Backend.Rooms.create')
+            ->with('roomTypes', RoomType::all())
+            ->with('amenities', Amenity::all());
     }
 
     /**
@@ -71,10 +79,12 @@ class RoomsController extends Controller
      */
     public function store(StoreRoomRequest $request)
     {
-        $room= Room::create([
-            'room_no'     => $request->room_no,
-            'name'        => $request->name,
-            'description' => $request->description,
+//        dd($request->all());
+        $room = Room::create([
+            'room_no'      => $request->room_no,
+            'name'         => $request->name,
+            'description'  => $request->description,
+            'room_type_id' => $request->room_type,
         ]);
 
         $room->amenity()->attach($request->amenities);
@@ -103,9 +113,11 @@ class RoomsController extends Controller
     {
         $room = Room::findBySlug($slug);
 
+        $roomTypes = RoomType::all();
+
         $amenities = Amenity::all();
 
-        return view('layouts.Backend.Rooms.edit', compact('room', 'amenities'));
+        return view('layouts.Backend.Rooms.edit', compact('room', 'amenities', 'roomTypes'));
     }
 
     /**
@@ -115,14 +127,22 @@ class RoomsController extends Controller
      * @param $slug
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRoomRequest $request, $slug)
+    public function update(Request $request, $slug)
     {
         $room = Room::findBySlug($slug);
 
+        $request->validate([
+            'room_no'      => ['required', 'string', 'max:255', Rule::unique('rooms')->ignore($room->id)],
+            'name'         => 'required|string|max:255',
+            'description'  => 'required|string|max:255',
+            'room_type_id' => 'required',
+        ]);
+
         $room->update([
-            'room_no'     => $request->room_no,
-            'name'        => $request->name,
-            'description' => $request->description,
+            'room_no'      => $request->room_no,
+            'name'         => $request->name,
+            'description'  => $request->description,
+            'room_type_id' => $request->room_type_id,
         ]);
 
         $room->amenity()->sync($request->amenities);
