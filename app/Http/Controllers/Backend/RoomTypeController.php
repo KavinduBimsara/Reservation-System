@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Store\StoreRoomTypeRequest;
 use App\Models\Room;
 use App\Models\RoomType;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\Store\StoreRoomTypeRequest;
 
 class RoomTypeController extends Controller
 {
-
     /**
-     * Fetch JSON listing of the room type resource
+     * Fetch JSON listing of the room type resource.
      * @return mixed
      * @throws \Exception
      */
@@ -36,8 +35,8 @@ class RoomTypeController extends Controller
                       aria-expanded="false">
                 <i class="fa fa-bars"></i></button>
               <ul class="dropdown-menu pull-right" role="menu">
-               <li><a  href="' . route('room-type.edit', $roomType->slug) . '"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
-               <li><a onclick="return confirm(\'Are you sure ?\')" href="' . route('room-type.delete', $roomType->slug) . '"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
+               <li><a  href="'.route('room-type.edit', $roomType->slug).'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
+               <li><a onclick="return confirm(\'Are you sure ?\')" href="'.route('room-type.delete', $roomType->slug).'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
 
               </ul>
             </div>';
@@ -116,7 +115,6 @@ class RoomTypeController extends Controller
      */
     public function update(Request $request, $slug)
     {
-
         $roomType = RoomType::findBySlugOrFail($slug);
 
         $request->validate([
