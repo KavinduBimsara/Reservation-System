@@ -19,14 +19,23 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('users/{id}/delete', 'Backend\UsersController@destroy')->name('users.delete');
-Route::get('amenities/{id}/delete', 'Backend\AmenitiesController@destroy')->name('amenities.delete');
 
-// DATATABLE ROUTES
-Route::get('users/datatable', 'Backend\UsersController@dataTable')->name('users.datatable');
-Route::get('amenities/datatable', 'Backend\AmenitiesController@dataTable')->name('amenities.datatable');
+Route::group([
+    'namespace' => 'Backend',
+    'prefix'    => 'admin'
+], function () {
 
-Route::resources([
-    'users'     => 'Backend\UsersController',
-    'amenities' => 'Backend\AmenitiesController'
-]);
+    // DATATABLE ROUTES
+    Route::get('users/datatable', 'UsersController@dataTable')->name('users.datatable');
+    Route::get('amenities/datatable', 'AmenitiesController@dataTable')->name('amenities.datatable');
+
+    // Delete routes
+    Route::get('users/{id}/delete', 'Backend\UsersController@destroy')->name('users.delete');
+    Route::get('amenities/{id}/delete', 'Backend\AmenitiesController@destroy')->name('amenities.delete');
+
+    Route::resources([
+        'users'     => 'UsersController',
+        'amenities' => 'AmenitiesController'
+    ]);
+
+});
