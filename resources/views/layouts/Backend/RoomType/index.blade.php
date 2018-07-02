@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Reservation System | Amenities')
+@section('title', 'Reservation System | Room Type')
 
 @section('content')
 
@@ -8,7 +8,8 @@
     <div class="box box-success with-border no-padding">
 
       <div class="box-header with-border">
-        <a href="{{ route('amenities.create') }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i> Amenity</a>
+        <a href="{{ route('room-type.create') }}" class="btn btn-default btn-sm"><i
+                  class="glyphicon glyphicon-plus"></i> Room Type</a>
         <div class="box-tools pull-left">
 
           <div class="btn-group">
@@ -30,6 +31,7 @@
           <tr>
             <th>Name</th>
             <th>Description</th>
+            <th>Capacity</th>
             <th>Created</th>
             <th>Updated</th>
             <th>Action</th>
@@ -39,7 +41,7 @@
       </div>
       <!-- /.box-body -->
       <div class="box-footer bg-gray-light">
-        Details of All Amenities
+        Details of All Rooms Types
       </div>
 
     </div>
@@ -56,10 +58,11 @@
               processing: true,
               serverSide: true,
               responsive: true,
-              ajax: '{!! route('amenities.datatable') !!}',
+              ajax: '{!! route('room-type.datatable') !!}',
               columns: [
                   {data: 'name', name: 'name'},
                   {data: 'description', name: 'description'},
+                  {data: 'capacity', name: 'capacity'},
                   {data: 'created_at', name: 'created_at'},
                   {data: 'updated_at', name: 'updated_at'},
                   {data: 'action', name: 'action'},

@@ -5,7 +5,7 @@
 @section('content')
 
   <div class="col-md-12">
-    <div class="box box-default with-border no-padding">
+    <div class="box box-success with-border no-padding">
 
       <div class="box-header with-border">
         <a href="{{ route('users.create') }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i> User</a>
@@ -24,8 +24,8 @@
         </div>
       </div>
       <!-- /.box-header -->
-      <div class="box-body ">
-        <table class="table table-hover table-condensed" id="table">
+      <div class="box-body table-responsive">
+        <table class="table table-hover table-condensed " id="table">
           <thead>
           <tr>
             <th>Username</th>
@@ -37,7 +37,7 @@
         </table>
       </div>
       <!-- /.box-body -->
-      <div class="panel-footer">
+      <div class="box-footer bg-gray-light">
         Registered Users
       </div>
     </div>

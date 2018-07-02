@@ -21,7 +21,7 @@
 
           @include('layouts.Backend.Amenities.form', [
            'submitButtonText' => 'Create',
-           'amenities' => new \App\Models\Amenity
+           'amenities' => new \App\Models\Amenity,
           ])
 
         </form>

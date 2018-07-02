@@ -5,11 +5,16 @@ namespace App\Http\Controllers\Backend;
 use App\User;
 use Yajra\Datatables\Datatables;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\Store\StoreUserRequest;
 use App\Http\Requests\Update\UpdateUserRequest;
 
 class UsersController extends Controller
 {
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
     public function dataTable()
     {
         $users = User::select(['id', 'name', 'email', 'created_at']);
@@ -50,6 +55,8 @@ class UsersController extends Controller
      */
     public function create()
     {
+        Session::flush('success', 'huyi');
+
         return view('layouts.Backend.ACL.Users.create');
     }
 

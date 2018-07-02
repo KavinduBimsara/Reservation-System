@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'green-light',
+    'skin' => 'green',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,25 +110,25 @@ return [
     'menu' => [
 
         [
-            'text'        => 'Access Control List',
-            'icon'        => 'users',
+            'text'    => 'Access Control List',
+            'icon'    => 'users',
             'submenu' => [
                 [
                     'text' => 'Users',
-                    'url'         => 'users',
-                    'icon'        => 'users',
+                    'url'  => 'admin/users',
+                    'icon' => 'users',
                 ],
 
                 [
                     'text' => 'Roles',
-                    'url'         => '#',
-                    'icon'        => 'lock',
+                    'url'  => '#',
+                    'icon' => 'lock',
                 ],
 
                 [
                     'text' => 'Permission',
-                    'url'         => '#',
-                    'icon'        => 'key',
+                    'url'  => '#',
+                    'icon' => 'key',
                 ],
 
             ],
@@ -136,46 +136,64 @@ return [
 
         [
             'text' => 'Amenities',
-            'url'  => 'amenities',
+            'url'  => 'admin/amenities',
             'icon' => 'wifi',
         ],
 
-    ],
+        [
+            'text' => 'Room Details',
+            'icon' => 'bed',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Menu Filters
-    |--------------------------------------------------------------------------
-    |
-    | Choose what filters you want to include for rendering the menu.
-    | You can add your own filters to this array after you've created them.
-    | You can comment out the GateFilter if you don't want to use Laravel's
-    | built in Gate functionality
-    |
-    */
+            'submenu' => [
+                [
+                    'text' => 'Rooms',
+                    'url'  => 'admin/rooms',
+                    'icon' => 'bed',
+                ],
+                [
+                    'text' => 'Room Types',
+                    'url'  => 'admin/room-type',
+                    'icon' => 'clone',
+                ],
+            ],
+            ]
 
-    'filters' => [
-        JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\SubmenuFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
-        JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
-    ],
+        ],
 
-    /*
-    |--------------------------------------------------------------------------
-    | Plugins Initialization
-    |--------------------------------------------------------------------------
-    |
-    | Choose which JavaScript plugins should be included. At this moment,
-    | only DataTables is supported as a plugin. Set the value to true
-    | to include the JavaScript file from a CDN via a script tag.
-    |
-    */
+        /*
+        |--------------------------------------------------------------------------
+        | Menu Filters
+        |--------------------------------------------------------------------------
+        |
+        | Choose what filters you want to include for rendering the menu.
+        | You can add your own filters to this array after you've created them.
+        | You can comment out the GateFilter if you don't want to use Laravel's
+        | built in Gate functionality
+        |
+        */
 
-    'plugins' => [
-        'datatables' => true,
-        'select2'    => false,
-        'chartjs'    => false,
-    ],
-];
+        'filters' => [
+            JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
+            JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
+            JeroenNoten\LaravelAdminLte\Menu\Filters\SubmenuFilter::class,
+            JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
+            JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+        ],
+
+        /*
+        |--------------------------------------------------------------------------
+        | Plugins Initialization
+        |--------------------------------------------------------------------------
+        |
+        | Choose which JavaScript plugins should be included. At this moment,
+        | only DataTables is supported as a plugin. Set the value to true
+        | to include the JavaScript file from a CDN via a script tag.
+        |
+        */
+
+        'plugins' => [
+            'datatables' => true,
+            'select2'    => true,
+            'chartjs'    => false,
+        ],
+    ];
