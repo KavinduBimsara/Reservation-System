@@ -3,9 +3,9 @@
 @section('title', 'Reservation System | Amenities')
 
 @section('content')
-
+<div class="row">
   <div class="col-md-12">
-    <div class="box box-success with-border no-padding">
+    <div class="box box-success no-padding">
 
       <div class="box-header with-border">
         <a href="{{ route('amenities.create') }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i> Amenity</a>
@@ -24,7 +24,7 @@
         </div>
       </div>
       <!-- /.box-header -->
-      <div class="box-body ">
+      <div class="panel-body ">
         <table class="table table-hover table-condensed" id="table">
           <thead>
           <tr>
@@ -38,13 +38,14 @@
         </table>
       </div>
       <!-- /.box-body -->
-      <div class="box-footer bg-gray-light">
+      <div class="panel-footer bg-gray-light">
         Details of All Amenities
       </div>
 
     </div>
     <!-- /.box -->
   </div>
+</div>
 
 @stop
 

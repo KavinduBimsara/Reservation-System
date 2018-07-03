@@ -3,9 +3,9 @@
 @section('title', 'Reservation System | Users')
 
 @section('content')
-
+<div class="row">
   <div class="col-md-12">
-    <div class="box box-success with-border no-padding">
+    <div class="box box-success no-padding">
 
       <div class="box-header with-border">
         <a href="{{ route('users.create') }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i> User</a>
@@ -24,7 +24,7 @@
         </div>
       </div>
       <!-- /.box-header -->
-      <div class="box-body table-responsive">
+      <div class="panel-body table-hover table-condensed">
         <table class="table table-hover table-condensed " id="table">
           <thead>
           <tr>
@@ -43,7 +43,7 @@
     </div>
     <!-- /.box -->
   </div>
-
+</div>
 @stop
 
 @section('js')

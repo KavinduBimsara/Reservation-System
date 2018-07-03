@@ -3,7 +3,7 @@
 @section('title', 'Reservation System | Room Type')
 
 @section('content')
-
+<div class="row">
   <div class="col-md-12">
     <div class="box box-success with-border no-padding">
 
@@ -25,7 +25,7 @@
         </div>
       </div>
       <!-- /.box-header -->
-      <div class="box-body ">
+      <div class="panel-body ">
         <table class="table table-hover table-condensed" id="table">
           <thead>
           <tr>
@@ -40,14 +40,14 @@
         </table>
       </div>
       <!-- /.box-body -->
-      <div class="box-footer bg-gray-light">
+      <div class="panel-footer bg-gray-light">
         Details of All Rooms Types
       </div>
 
     </div>
     <!-- /.box -->
   </div>
-
+</div>
 @stop
 
 @section('js')
