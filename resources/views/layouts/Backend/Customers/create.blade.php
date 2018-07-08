@@ -1,31 +1,34 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Reservation System | Create Customer')
 
 @section('content_header')
-  <h1>Users</h1>
+  <h1>Customers</h1>
 @stop
 
 @section('content')
 <div class="row">
-  <div class="col-md-7 col-md-offset-2">
+  <div class="col-md-9 col-md-offset-1">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title text-center">Create User Account</h3>
+        <h3 class="panel-title text-center">Create Customer</h3>
       </div>
 
       <div class="panel-body overflow-hidden">
+        @foreach($errors->all() as $e)
+          <l>{{ $e }}</l>
+        @endforeach
         <form
-                action="{{ route('users.store') }}"
+                action="{{ route('customers.store') }}"
                 method="POST"
                 id="form"
         >
 
           {{ csrf_field() }}
 
-          @include('layouts.Backend.ACL.users.form', [
+          @include('layouts.Backend.Customers.form', [
            'submitButtonText' => 'Create',
-           'user' => new \App\User
+           'customer' => new \App\Models\Customer
           ])
         </form>
       </div>

@@ -135,6 +135,12 @@ return [
         ],
 
         [
+            'text' => 'Customers',
+            'url'  => 'admin/customers',
+            'icon' => 'users',
+        ],
+
+        [
             'text' => 'Amenities',
             'url'  => 'admin/amenities',
             'icon' => 'wifi',
