@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
-use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
@@ -15,7 +15,7 @@ class Customer extends Model
      *
      * @var array
      */
-    protected  $fillable = [
+    protected $fillable = [
         'title', 'first_name', 'last_name', 'email', 'slug'
     ];
 
@@ -33,7 +33,8 @@ class Customer extends Model
         ];
     }
 
-    public function getFullnameAttribute() {
-        return $this->first_name . ' ' . $this->last_name;
+    public function getFullnameAttribute()
+    {
+        return $this->first_name.' '.$this->last_name;
     }
 }

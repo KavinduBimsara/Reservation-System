@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\Store\StoreCustomersRequest;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\Store\StoreCustomersRequest;
 
 class CustomersController extends Controller
 {
-
     /**
      * Fetch JSON listing of the customer resource.
      * @return mixed
@@ -36,8 +35,8 @@ class CustomersController extends Controller
                       aria-expanded="false">
                 <i class="fa fa-bars"></i></button>
               <ul class="dropdown-menu pull-right" role="menu">
-               <li><a  href="' . route('customers.edit', $customer->slug) . '"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
-               <li><a onclick="return confirm(\'Are you sure ?\')" href="' . route('customers.delete', $customer->slug) . '"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
+               <li><a  href="'.route('customers.edit', $customer->slug).'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
+               <li><a onclick="return confirm(\'Are you sure ?\')" href="'.route('customers.delete', $customer->slug).'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
 
               </ul>
             </div>';
