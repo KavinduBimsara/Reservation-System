@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Room;
 use App\Models\Customer;
 use App\Models\Reservation;
-use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -63,7 +63,6 @@ class ReservationsController extends Controller
      */
     public function create()
     {
-
         return view('layouts.Backend.Reservations.create')
             ->with('rooms', Room::all())
             ->with('customers', Customer::all());
@@ -77,7 +76,6 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
-
         $customer = Customer::findOrFail($request->customer_id);
 
         $reservation = $customer->reservation()->create([
@@ -111,7 +109,6 @@ class ReservationsController extends Controller
      */
     public function edit($id)
     {
-
         return view('layouts.Backend.Reservations.edit')
             ->with('reservation', Reservation::withUuid($id)->first())
             ->with('rooms', Room::all())
@@ -144,7 +141,7 @@ class ReservationsController extends Controller
     }
 
     /**
-     * Cancel the specified reservation
+     * Cancel the specified reservation.
      *
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
