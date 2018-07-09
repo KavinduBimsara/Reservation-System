@@ -110,61 +110,72 @@ return [
     'menu' => [
 
         [
-            'text'    => 'Access Control List',
-            'icon'    => 'users',
-            'submenu' => [
-                [
-                    'text' => 'Users',
-                    'url'  => 'admin/users',
-                    'icon' => 'users',
-                ],
+            'text' => 'Dashboard',
+            'icon' => 'dashboard',
+            'url'  => '#',
+        ],
 
-                [
-                    'text' => 'Roles',
-                    'url'  => '#',
-                    'icon' => 'lock',
-                ],
+        ['text'    => 'Access Control List',
+        'icon'     => 'users',
+        'submenu'  => [
+            [
+                'text' => 'Users',
+                'url'  => 'admin/users',
+                'icon' => 'users',
+            ],
 
-                [
-                    'text' => 'Permission',
-                    'url'  => '#',
-                    'icon' => 'key',
-                ],
+            [
+                'text' => 'Roles',
+                'url'  => '#',
+                'icon' => 'lock',
+            ],
 
+            [
+                'text' => 'Permission',
+                'url'  => '#',
+                'icon' => 'key',
+            ],
+
+        ],
+    ],
+
+    [
+        'text' => 'Customers',
+        'url'  => 'admin/customers',
+        'icon' => 'users',
+    ],
+
+    [
+        'text' => 'Reservations',
+        'url'  => 'admin/reservations',
+        'icon' => 'users',
+    ],
+
+    [
+        'text' => 'Amenities',
+        'url'  => 'admin/amenities',
+        'icon' => 'wifi',
+    ],
+
+    [
+        'text' => 'Room Details',
+        'icon' => 'bed',
+
+        'submenu' => [
+            [
+                'text' => 'Rooms',
+                'url'  => 'admin/rooms',
+                'icon' => 'bed',
+            ],
+            [
+                'text' => 'Room Types',
+                'url'  => 'admin/room-type',
+                'icon' => 'clone',
             ],
         ],
+    ]
 
-        [
-            'text' => 'Customers',
-            'url'  => 'admin/customers',
-            'icon' => 'users',
-        ],
-
-        [
-            'text' => 'Amenities',
-            'url'  => 'admin/amenities',
-            'icon' => 'wifi',
-        ],
-
-        [
-            'text' => 'Room Details',
-            'icon' => 'bed',
-
-            'submenu' => [
-                [
-                    'text' => 'Rooms',
-                    'url'  => 'admin/rooms',
-                    'icon' => 'bed',
-                ],
-                [
-                    'text' => 'Room Types',
-                    'url'  => 'admin/room-type',
-                    'icon' => 'clone',
-                ],
-            ],
-            ]
-
-        ],
+],
 
         /*
         |--------------------------------------------------------------------------
@@ -179,12 +190,12 @@ return [
         */
 
         'filters' => [
-            JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
-            JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
-            JeroenNoten\LaravelAdminLte\Menu\Filters\SubmenuFilter::class,
-            JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
-            JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
-        ],
+    JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
+    JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
+    JeroenNoten\LaravelAdminLte\Menu\Filters\SubmenuFilter::class,
+    JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
+    JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+],
 
         /*
         |--------------------------------------------------------------------------
@@ -198,8 +209,8 @@ return [
         */
 
         'plugins' => [
-            'datatables' => true,
-            'select2'    => true,
-            'chartjs'    => false,
-        ],
+    'datatables' => true,
+    'select2'    => true,
+    'chartjs'    => false,
+],
     ];

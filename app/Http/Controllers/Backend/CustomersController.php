@@ -37,7 +37,7 @@ class CustomersController extends Controller
                 <i class="fa fa-bars"></i></button>
               <ul class="dropdown-menu pull-right" role="menu">
                <li><a  href="' . route('customers.edit', $customer->slug) . '"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
-               <li><a onclick="return confirm(\'Are you sure ?\')" href="' . route('customers.delete', $customer->slug) . '"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
+               <li><a onclick="return confirm(\'Are you sure? Reservation record(s) will be deleted as well \')" href="' . route('customers.delete', $customer->id) . '"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
 
               </ul>
             </div>';
@@ -143,14 +143,13 @@ class CustomersController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy($id)
     {
-        $customer = Customer::findBySlugOrFail($slug);
+        $customer = Customer::with('reservation')->find($id);
 
-        try {
-            $customer->delete();
-        } catch (\Exception $e) {
-        }
+        $customer->reservation()->forceDelete();
+
+        $customer->delete();
 
         Session::flash('info', 'Customer has been deleted');
 

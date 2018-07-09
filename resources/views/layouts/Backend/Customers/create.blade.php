@@ -22,6 +22,7 @@
                 action="{{ route('customers.store') }}"
                 method="POST"
                 id="form"
+                autocomplete="off"
         >
 
           {{ csrf_field() }}

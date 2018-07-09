@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Cviebrock\EloquentSluggable\Sluggable;
-use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\BinaryUuid\HasBinaryUuid;
 
-class Customer extends Model
+class Reservation extends Model
 {
-    use Sluggable, SluggableScopeHelpers;
+    use HasBinaryUuid, SoftDeletes;
 
     /*
     |--------------------------------------------------------------------------
@@ -17,32 +17,25 @@ class Customer extends Model
     */
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'title',
-        'first_name',
-        'last_name',
-        'email',
-        'slug',
-    ];
+    protected $fillable = ['start_date', 'end_date', 'customer_id'];
 
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
+    protected $dates = ['deleted_at', 'start_date', 'end_date'];
+
+    public function getKeyName()
     {
-        return [
-            'slug' => [
-                'source' => 'fullname',
-            ],
-        ];
+        return 'reservation_number';
     }
-
 
     /*
     |--------------------------------------------------------------------------
@@ -56,9 +49,14 @@ class Customer extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function reservation()
+    public function customer()
     {
-        return $this->hasMany(Reservation::class);
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
+
+    public function rooms()
+    {
+        return $this->belongsToMany(Room::class, 'reservation_room', 'reservation_number', 'room_id')->withTimestamps();
     }
 
     /*
@@ -67,10 +65,6 @@ class Customer extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function getFullnameAttribute()
-    {
-        return $this->first_name.' '.$this->last_name;
-    }
     /*
     |--------------------------------------------------------------------------
     | MUTATOR

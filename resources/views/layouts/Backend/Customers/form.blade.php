@@ -1,11 +1,8 @@
 <!-- Title -->
 <div class="form-group col-md-2">
   <label for="name">Title</label>
-  <select class="form-control" name="title" >
-    <option value="Mr.">Mr.</option>
-    <option value="Mrs.">Mrs.</option>
-    <option value="Ms.">Ms.</option>
-  </select>
+  <input type="text" class="form-control" name="title" id="title" value="{{ $customer->title }}">
+
 </div>
 
 <!-- Title -->
