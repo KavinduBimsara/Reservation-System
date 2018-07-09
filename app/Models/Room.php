@@ -10,7 +10,6 @@ class Room extends Model
 {
     use Sluggable, SluggableScopeHelpers;
 
-
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES

@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Spatie\BinaryUuid\HasBinaryUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\BinaryUuid\HasBinaryUuid;
 
 class Reservation extends Model
 {

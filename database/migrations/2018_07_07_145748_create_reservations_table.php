@@ -6,7 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateReservationsTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -24,7 +23,6 @@ class CreateReservationsTable extends Migration
 
             $table->primary('reservation_number');
             $table->foreign('customer_id')->references('id')->on('customers');
-
         });
 
         Schema::create('reservation_room', function (Blueprint $table) {
