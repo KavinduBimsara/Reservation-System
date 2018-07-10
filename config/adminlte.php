@@ -116,7 +116,7 @@ return [
         ],
 
         ['text'    => 'Access Control List',
-        'icon'     => 'users',
+        'icon'     => 'lock',
         'submenu'  => [
             [
                 'text' => 'Users',
@@ -148,7 +148,7 @@ return [
     [
         'text' => 'Reservations',
         'url'  => 'admin/reservations',
-        'icon' => 'users',
+        'icon' => 'shopping-bag',
     ],
 
     [
