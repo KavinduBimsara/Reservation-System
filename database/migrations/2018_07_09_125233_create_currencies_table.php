@@ -6,7 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCurrenciesTable extends Migration
 {
-
     public function up()
     {
         Schema::create('currencies', function (Blueprint $table) {
