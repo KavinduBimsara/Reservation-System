@@ -2,6 +2,17 @@
 
 @section('title', 'Reservation System | Reservations')
 
+@section('content_header')
+    <h1>
+        Reservations
+        <small>Reservations Details</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active"><i class="fa fa-shopping-bag"></i>  Reservations</li>
+    </ol>
+@stop
+
 @section('content')
     <div class="row">
         <div class="col-md-12">

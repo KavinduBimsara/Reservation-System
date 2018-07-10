@@ -2,6 +2,18 @@
 
 @section('title', 'Reservation System | Amenities | Edit ' . $amenity->name)
 
+@section('content_header')
+  <h1>
+    Amenities
+    <small>Edit Amenity</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li><i class="fa fa-wifi"></i> Amenities</li>
+    <li class="active"><i class="fa fa-edit"></i>  Edit</li>
+  </ol>
+@stop
+
 @section('content')
   <div class="row">
 

@@ -3,7 +3,15 @@
 @section('title', 'Reservation System | Create Customer')
 
 @section('content_header')
-  <h1>Customers</h1>
+  <h1>
+    Customers
+    <small>Create Customer</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li> <i class="fa fa-users"></i> Customers</li>
+    <li class="active"> <i class="fa fa-plus"></i> Create</li>
+  </ol>
 @stop
 
 @section('content')

@@ -2,6 +2,17 @@
 
 @section('title', 'Reservation System | Room Type - Create')
 
+@section('content_header')
+  <h1>
+    Room Types
+    <small>Create Room type</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li> <i class="fa fa-clone"></i> Room Types</li>
+    <li class="active"> <i class="fa fa-plus"></i> Create</li>
+  </ol>
+@stop
 
 @section('content')
   <div class="row">

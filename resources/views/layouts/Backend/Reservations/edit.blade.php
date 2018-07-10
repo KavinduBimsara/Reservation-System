@@ -1,9 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'Reservation System | Edit Customer')
+@section('title', 'Reservation System | Edit Reservation')
 
 @section('content_header')
-  <h1>Reservation</h1>
+    <h1>
+        Reservation
+        <small>Edit Reservation</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li> <i class="fa fa-shopping-bag"></i> Reservations</li>
+        <li class="active"> <i class="fa fa-edit"></i> Edit</li>
+    </ol>
 @stop
 
 @section('content')
