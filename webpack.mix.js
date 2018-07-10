@@ -11,13 +11,20 @@ let mix = require('laravel-mix');
  |
  */
 
+mix.setPublicPath('./');
+
+mix.autoload({
+    jQuery: 'jquery',
+    $: 'jquery',
+    jquery: 'jquery'
+});
+
 mix.js('resources/assets/js/app.js', 'public/js')
     .extract([
         'vue',
         'jquery',
         'datatables.net',
         'datatables.net-bs',
-        'bootstrap-datepicker',
         'toastr',
     ])
    .sass('resources/assets/sass/app.scss', 'public/css');

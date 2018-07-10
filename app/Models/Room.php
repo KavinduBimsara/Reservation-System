@@ -10,6 +10,12 @@ class Room extends Model
 {
     use Sluggable, SluggableScopeHelpers;
 
+    /*
+    |--------------------------------------------------------------------------
+    | GLOBAL VARIABLES
+    |--------------------------------------------------------------------------
+    */
+
     protected $fillable = ['room_no', 'name', 'description', 'slug', 'room_type_id'];
 
     /**
@@ -26,6 +32,12 @@ class Room extends Model
         ];
     }
 
+    /*
+   |--------------------------------------------------------------------------
+   | RELATIONSHIPS
+   |--------------------------------------------------------------------------
+   */
+
     public function amenity()
     {
         return $this->belongsToMany(Amenity::class, 'amenity_room')->withTimestamps();
@@ -34,5 +46,10 @@ class Room extends Model
     public function roomType()
     {
         return $this->belongsTo(RoomType::class, 'room_type_id');
+    }
+
+    public function reservations()
+    {
+        return $this->belongsToMany(Reservation::class, 'reservation_number', 'room_id', 'reservation_number')->withTimestamps();
     }
 }

@@ -3,7 +3,7 @@
 @section('title', 'AdminLTE')
 
 @section('content_header')
-  <h1>Dashboard</h1>
+  <h1>Users</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
   <div class="col-md-7 col-md-offset-2">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title text-center">Create new User Account</h3>
+        <h3 class="panel-title text-center">Create User Account</h3>
       </div>
 
       <div class="panel-body overflow-hidden">

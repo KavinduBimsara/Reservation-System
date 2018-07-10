@@ -19,7 +19,11 @@ Route::group([
     Route::get('amenities/datatable', 'AmenitiesController@dataTable')->name('amenities.datatable');
     Route::get('rooms/datatable', 'RoomsController@dataTable')->name('rooms.datatable');
     Route::get('room-type/datatable', 'RoomTypeController@dataTable')->name('room-type.datatable');
+
     Route::get('currencies/datatable', 'CurrenciesController@dataTable')->name('currencies.datatable');
+
+    Route::get('customers/datatable', 'CustomersController@dataTable')->name('customers.datatable');
+    Route::get('reservations/datatable', 'ReservationsController@dataTable')->name('reservations.datatable');
 
     // Delete routes
     Route::get('users/{id}/delete', 'UsersController@destroy')->name('users.delete');
@@ -35,5 +39,19 @@ Route::group([
         'room-type'  => 'RoomTypeController',
         'currencies' => 'CurrenciesController'
 
+
+    Route::get('customers/{id}/delete', 'CustomersController@destroy')->name('customers.delete');
+    Route::get('reservations/{id}/delete', 'ReservationsController@destroy')->name('reservations.delete');
+
+    // SoftDelete
+    Route::get('reservatioms/{id}/cancel', 'ReservationsController@cancelReservation')->name('reservations.cancel');
+
+    Route::resources([
+        'users'        => 'UsersController',
+        'amenities'    => 'AmenitiesController',
+        'rooms'        => 'RoomsController',
+        'room-type'    => 'RoomTypeController',
+        'customers'    => 'CustomersController',
+        'reservations' => 'ReservationsController'
     ]);
 });

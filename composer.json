@@ -1,8 +1,26 @@
 {
     "name": "Reservation-System",
-    "description": "Hotel Management System for booking and reservation of rooms",
-    "keywords": ["framework", "laravel", "reservation", "reservation system"],
-    "license": "MIT",
+    "description": "Hotel Reservation System for booking and reservation of rooms",
+    "keywords": ["framework", "laravel", "reservation", "reservation system", "booking"],
+    "license": "GNU AGPLv3",
+    "authors": [
+        {
+            "name": "Muhyadin Abdullahi",
+            "email": "muhi3849@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Salim Juma",
+            "email": "salimjjuma@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "support": {
+                "email": "muhi3849@gmail.com",
+                "email": "muhi3849@gmail.com",
+            }
+        }
+    ],
     "type": "project",
     "require": {
         "php": ">=7.0.0",
@@ -11,12 +29,13 @@
         "jeroennoten/laravel-adminlte": "^1.23",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
+        "proengsoft/laravel-jsvalidation": ">2.1.0",
         "spatie/laravel-activitylog": "^2.7",
         "spatie/laravel-backup": "^5.9",
+        "spatie/laravel-binary-uuid": "^1.1",
         "spatie/laravel-medialibrary": "7.0.0",
         "spatie/laravel-permission": "^2.12",
-        "yajra/laravel-datatables-oracle": "~8.0",
-        "proengsoft/laravel-jsvalidation": ">2.1.0"
+        "yajra/laravel-datatables-oracle": "~8.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
