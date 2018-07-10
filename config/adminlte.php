@@ -130,6 +130,29 @@ return [
                 'icon' => 'lock',
             ],
 
+
+        [
+            'text' => 'Currency',
+            'url'  => 'admin/currency',
+            'icon' => 'bitcoin',
+        ],
+
+        [
+            'text' => 'Room Details',
+            'icon' => 'bed',
+
+            'submenu' => [
+                [
+                    'text' => 'Rooms',
+                    'url'  => 'admin/rooms',
+                    'icon' => 'bed',
+                ],
+                [
+                    'text' => 'Room Types',
+                    'url'  => 'admin/room-type',
+                    'icon' => 'clone',
+                ],
+
             [
                 'text' => 'Permission',
                 'url'  => '#',

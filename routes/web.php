@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +20,9 @@ Route::group([
     Route::get('amenities/datatable', 'AmenitiesController@dataTable')->name('amenities.datatable');
     Route::get('rooms/datatable', 'RoomsController@dataTable')->name('rooms.datatable');
     Route::get('room-type/datatable', 'RoomTypeController@dataTable')->name('room-type.datatable');
+
+    Route::get('currencies/datatable', 'CurrenciesController@dataTable')->name('currencies.datatable');
+
     Route::get('customers/datatable', 'CustomersController@dataTable')->name('customers.datatable');
     Route::get('reservations/datatable', 'ReservationsController@dataTable')->name('reservations.datatable');
 
@@ -38,6 +31,16 @@ Route::group([
     Route::get('amenities/{id}/delete', 'AmenitiesController@destroy')->name('amenities.delete');
     Route::get('rooms/{slug}/delete', 'RoomsController@destroy')->name('rooms.delete');
     Route::get('rooms-type/{slug}/delete', 'RoomTypeController@destroy')->name('room-type.delete');
+    Route::get('currencies/{id}/delete', 'CurrenciesController@destroy')->name('currencies.delete');
+
+    Route::resources([
+        'users'      => 'UsersController',
+        'amenities'  => 'AmenitiesController',
+        'rooms'      => 'RoomsController',
+        'room-type'  => 'RoomTypeController',
+        'currencies' => 'CurrenciesController'
+
+
     Route::get('customers/{id}/delete', 'CustomersController@destroy')->name('customers.delete');
     Route::get('reservations/{id}/delete', 'ReservationsController@destroy')->name('reservations.delete');
 
