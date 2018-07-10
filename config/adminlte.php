@@ -140,6 +140,13 @@ return [
             'icon' => 'wifi',
         ],
 
+
+        [
+            'text' => 'Currency',
+            'url'  => 'admin/currency',
+            'icon' => 'bitcoin',
+        ],
+
         [
             'text' => 'Room Details',
             'icon' => 'bed',
