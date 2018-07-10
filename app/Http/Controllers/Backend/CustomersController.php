@@ -39,9 +39,6 @@ class CustomersController extends Controller
                <li><a  href="'.route('customers.edit', $customer->slug).'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
                <li><a onclick="return confirm(\'Are you sure? Reservation record(s) will be deleted as well \')" href="'.route('customers.delete', $customer->id).'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
 
-               <li><a  href="'.route('customers.edit', $customer->slug).'"><i class="glyphicon glyphicon-edit"></i>Edit </a></li>
-               <li><a onclick="return confirm(\'Are you sure ?\')" href="'.route('customers.delete', $customer->slug).'"><i class="glyphicon glyphicon-trash"></i>Delete</a></li>
-
               </ul>
             </div>';
             })->make();

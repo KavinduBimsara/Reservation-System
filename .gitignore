@@ -3,6 +3,7 @@
 /public/storage
 /public/*
 /storage/*.key
+/storage/*
 /vendor
 /.idea
 /.vagrant
@@ -13,3 +14,4 @@ yarn-error.log
 .env
 !composer.lock
 !phpunit.xml
+phpunit.bat
