@@ -21,7 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group([
     'namespace' => 'Backend',
-    'prefix'    => 'admin'
+    'prefix' => 'admin',
+    'middleware' => 'auth',
 ], function () {
 
     // DATATABLE ROUTES
@@ -44,11 +45,11 @@ Route::group([
     Route::get('reservatioms/{id}/cancel', 'ReservationsController@cancelReservation')->name('reservations.cancel');
 
     Route::resources([
-        'users'        => 'UsersController',
-        'amenities'    => 'AmenitiesController',
-        'rooms'        => 'RoomsController',
-        'room-type'    => 'RoomTypeController',
-        'customers'    => 'CustomersController',
-        'reservations' => 'ReservationsController'
+        'users' => 'UsersController',
+        'amenities' => 'AmenitiesController',
+        'rooms' => 'RoomsController',
+        'room-type' => 'RoomTypeController',
+        'customers' => 'CustomersController',
+        'reservations' => 'ReservationsController',
     ]);
 });

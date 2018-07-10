@@ -24,4 +24,4 @@ To be done...
 Generally we won't accept any PR requests to this repo. If you discover any security related issues or have an idea to improve the code,  please email [muhi3849@gmail.com](muhi3849@gmail.com)
 
 ### License
-The GNU Affero General Public License v3.0. Plese see the [License File](LICENSE.md) for details.
+The GNU Affero General Public License v3.0. Plese see the [License File](LICENSE) for details.

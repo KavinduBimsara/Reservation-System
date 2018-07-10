@@ -13,18 +13,17 @@
             "name": "Salim Juma",
             "email": "salimjjuma@gmail.com",
             "role": "Developer"
-        },
-        {
-            "support": {
-                "email": "muhi3849@gmail.com",
-                "email": "muhi3849@gmail.com",
-            }
         }
     ],
+    "support": {
+        "email": "muhi3849@gmail.com",
+        "source": "https://github.com/M-Abdullahi/Reservation-System"
+    },
     "type": "project",
     "require": {
         "php": ">=7.0.0",
         "cviebrock/eloquent-sluggable": "4.3",
+        "doctrine/dbal": "^2.7",
         "fideloper/proxy": "~3.3",
         "jeroennoten/laravel-adminlte": "^1.23",
         "laravel/framework": "5.5.*",
@@ -38,6 +37,7 @@
         "yajra/laravel-datatables-oracle": "~8.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.1",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",
