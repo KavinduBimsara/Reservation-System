@@ -9,8 +9,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group([
-    'namespace' => 'Backend',
-    'prefix' => 'admin',
+    'namespace'  => 'Backend',
+    'prefix'     => 'admin',
     'middleware' => 'auth',
 ], function () {
 
@@ -37,13 +37,13 @@ Route::group([
     Route::get('reservatioms/{id}/cancel', 'ReservationsController@cancelReservation')->name('reservations.cancel');
 
     Route::resources([
-        'users' => 'UsersController',
-        'amenities' => 'AmenitiesController',
-        'rooms' => 'RoomsController',
-        'room-type' => 'RoomTypeController',
-        'customers' => 'CustomersController',
+        'users'        => 'UsersController',
+        'amenities'    => 'AmenitiesController',
+        'rooms'        => 'RoomsController',
+        'room-type'    => 'RoomTypeController',
+        'customers'    => 'CustomersController',
         'reservations' => 'ReservationsController',
-        'currencies' => 'CurrenciesController',
-        'rates' => 'RatesController',
+        'currencies'   => 'CurrenciesController',
+        'rates'        => 'RatesController',
     ]);
 });

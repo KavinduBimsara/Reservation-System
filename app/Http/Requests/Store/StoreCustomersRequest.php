@@ -27,7 +27,7 @@ class StoreCustomersRequest extends FormRequest
             'title'      => 'required',
             'first_name' => 'required|string|max:255',
             'last_name'  => 'required|string|max:255',
-            'email'      => 'required|string|confirmed|unique:customers'
+            'email'      => 'required|string|confirmed|unique:customers',
         ];
     }
 }

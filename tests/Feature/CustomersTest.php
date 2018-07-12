@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use App\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
 
 class CustomersTest extends TestCase
 {
@@ -13,7 +13,6 @@ class CustomersTest extends TestCase
     /** @test  */
     public function un_authenticated_user_cannot_see_customer()
     {
-
         $response = $this->get('admin/customers');
 
         $response->assertRedirect('/login');
@@ -27,7 +26,6 @@ class CustomersTest extends TestCase
         $response = $this->actingAs($user)->get('admin/customers/datatable');
 
         $response->assertStatus(200);
-
     }
 
     /** @test  */
@@ -39,6 +37,4 @@ class CustomersTest extends TestCase
 
         $response->assertStatus(200);
     }
-
-
 }

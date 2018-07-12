@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Store\StoreAmenityRequest;
 use App\Models\Amenity;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-use App\Http\Requests\Store\StoreAmenityRequest;
 
 class AmenitiesController extends Controller
 {
@@ -61,13 +61,14 @@ class AmenitiesController extends Controller
      * Store the newly created amenity resource in storage.
      *
      * @param StoreAmenityRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreAmenityRequest $request)
     {
         Amenity::create([
-            'name' => $request->name,
-            'description'=>$request->description
+            'name'       => $request->name,
+            'description'=> $request->description,
         ]);
 
         return redirect()->route('amenities.index');
@@ -76,7 +77,8 @@ class AmenitiesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -87,7 +89,8 @@ class AmenitiesController extends Controller
     /**
      * Show the amenity form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($slug)
@@ -101,7 +104,8 @@ class AmenitiesController extends Controller
      * Update the amenity resource in storage.
      *
      * @param Request $request
-     * @param  int $id
+     * @param int     $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $slug)
@@ -114,8 +118,8 @@ class AmenitiesController extends Controller
         ]);
 
         $amenity->update([
-            'name' => $request->name,
-            'description'=>$request->description
+            'name'       => $request->name,
+            'description'=> $request->description,
         ]);
 
         return redirect()->route('amenities.index');
@@ -124,7 +128,8 @@ class AmenitiesController extends Controller
     /**
      * Remove the specified amenity resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

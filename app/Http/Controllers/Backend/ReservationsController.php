@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\Room;
+use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Reservation;
+use App\Models\Room;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -15,8 +15,9 @@ class ReservationsController extends Controller
     /**
      * Fetch JSON listing of the reservations resource.
      *
-     * @return mixed
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function dataTable()
     {
@@ -71,7 +72,8 @@ class ReservationsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -80,7 +82,7 @@ class ReservationsController extends Controller
 
         $reservation = $customer->reservation()->create([
             'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
+            'end_date'   => $request->end_date,
         ]);
 
         $reservation->rooms()->attach($request->room_id);
@@ -93,7 +95,8 @@ class ReservationsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -104,7 +107,8 @@ class ReservationsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -118,8 +122,9 @@ class ReservationsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -130,7 +135,7 @@ class ReservationsController extends Controller
 
         $customer->reservation()->update([
             'start_date' => $request->start_date,
-            'end_date' => $request->end_date,
+            'end_date'   => $request->end_date,
         ]);
 
         $reservation->rooms()->sync([$request->room_id]);
@@ -144,6 +149,7 @@ class ReservationsController extends Controller
      * Cancel the specified reservation.
      *
      * @param $id
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function cancelReservation($id)
@@ -160,7 +166,8 @@ class ReservationsController extends Controller
     /**
      * Permanently remove the specified reservation from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

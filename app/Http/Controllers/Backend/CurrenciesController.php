@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
 use App\Models\Currency;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 
 class CurrenciesController extends Controller
@@ -50,7 +50,7 @@ class CurrenciesController extends Controller
     {
         Currency::create([
             'name' => $request->name,
-            'code' => $request->code
+            'code' => $request->code,
         ]);
 
         return redirect()->route('currencies.index');
@@ -79,7 +79,7 @@ class CurrenciesController extends Controller
 
         $currency->update([
             'name' => $request->name,
-            'code' => $request->code
+            'code' => $request->code,
         ]);
 
         return redirect()->route('currencies.index');

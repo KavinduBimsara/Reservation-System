@@ -24,8 +24,8 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ];
     }
@@ -33,9 +33,9 @@ class StoreUserRequest extends FormRequest
     public function commit()
     {
         $this->user()->create([
-           'name' => $this->name,
-           'email' => $this->email,
-           'password' => bcrypt($this->password)
+           'name'     => $this->name,
+           'email'    => $this->email,
+           'password' => bcrypt($this->password),
         ]);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Amenity extends Model
 {
@@ -22,8 +22,8 @@ class Amenity extends Model
     {
         return [
             'slug' => [
-                'source' => 'name'
-            ]
+                'source' => 'name',
+            ],
         ];
     }
 
