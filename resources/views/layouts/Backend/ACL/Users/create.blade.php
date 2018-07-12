@@ -9,8 +9,8 @@
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-    <li class="active"><i class="fa fa-users"></i> Users</li>
-    <li class="active">Create User</li>
+    <li><i class="fa fa-users"></i> Users</li>
+    <li class="active"><i class="fa fa-plus"></i> Create User</li>
   </ol>
 @stop
 @section('content')

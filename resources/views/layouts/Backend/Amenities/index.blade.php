@@ -22,7 +22,7 @@
         <a href="{{ route('amenities.create') }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i> Amenity</a>
         <div class="box-tools pull-left">
 
-          <div class="btn-group">
+          <div class="btn-group btn-group-sm">
             <button type="button" class="btn btn-default btn-md dropdown-toggle" data-toggle="dropdown"
                     aria-expanded="false">
               <i class="fa fa-bars"></i>

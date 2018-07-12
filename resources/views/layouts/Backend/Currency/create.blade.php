@@ -8,7 +8,7 @@
     <div class="col-md-7 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title text-center">Create new Currency</h3>
+          <h3 class="panel-title text-center">Create Currency</h3>
         </div>
 
         <div class="panel-body overflow-hidden">

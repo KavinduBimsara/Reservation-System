@@ -22,7 +22,7 @@
         <a href="{{ route('users.create') }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i> User</a>
         <div class="box-tools pull-left">
 
-          <div class="btn-group">
+          <div class="btn-group btn-group-sm">
             <button type="button" class="btn btn-default btn-md dropdown-toggle" data-toggle="dropdown"
                     aria-expanded="false">
               <i class="fa fa-bars"></i>
@@ -60,18 +60,20 @@
 @section('js')
 
   <script>
+
       $(function () {
           $('#table').DataTable({
               processing: true,
               serverSide: true,
               responsive: true,
+              "pageLength": 50,
               ajax: '{!! route('users.datatable') !!}',
               columns: [
                   {data: 'name', name: 'name'},
                   {data: 'email', name: 'email'},
                   {data: 'created_at', name: 'created_at'},
                   {data: 'action', name: 'action'},
-              ]
+              ],
 
           });
       });

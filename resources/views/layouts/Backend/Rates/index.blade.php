@@ -1,15 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'Reservation System | Customers')
+@section('title', 'Reservation System | Rates')
 
 @section('content_header')
     <h1>
-        Customers
-        <small>Customers Details</small>
+        Rates
+        <small>Rates Details</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active"><i class="fa fa-users"></i> Customers</li>
+        <li class="active"><i class="fa fa-users"></i> Rates</li>
     </ol>
 @stop
 
@@ -20,7 +20,7 @@
       <div class="box box-success no-padding">
 
         <div class="box-header with-border">
-          <a href="{{ route('customers.create') }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i> Customer</a>
+          <a href="{{ route('rates.create') }}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus"></i> Rate</a>
           <div class="box-tools pull-left">
 
             <div class="btn-group btn-group-sm">
@@ -40,10 +40,9 @@
           <table class="table table-hover table-condensed " id="table">
             <thead>
             <tr>
-              <th>Title</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
+              <th>Rate</th>
+              <th>Currency</th>
+              <th>Room</th>
               <th>Date Created</th>
               <th>Action</th>
             </tr>
@@ -52,7 +51,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer bg-gray-light">
-          Registered Customers
+          Rates Detail
         </div>
       </div>
       <!-- /.box -->
@@ -68,12 +67,11 @@
               processing: true,
               serverSide: true,
               responsive: true,
-              ajax: '{!! route('customers.datatable') !!}',
+              ajax: '{!! route('rates.datatable') !!}',
               columns: [
-                  {data: 'title', name: 'title'},
-                  {data: 'first_name', name: 'first_name'},
-                  {data: 'last_name', name: 'last_name'},
-                  {data: 'email', name: 'email'},
+                  {data: 'rate', name: 'rate'},
+                  {data: 'currency_id', name: 'currency_id'},
+                  {data: 'room_id', name: 'room_id'},
                   {data: 'created_at', name: 'created_at'},
                   {data: 'action', name: 'action'},
               ]
