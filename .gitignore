@@ -15,3 +15,8 @@ yarn-error.log
 !composer.lock
 !phpunit.xml
 phpunit.bat
+*.eot
+*.eot
+public/fonts/bootstrap/glyphicons-halflings-regular.eot
+public/fonts/bootstrap/glyphicons-halflings-regular.svg
+public/fonts/glyphicons-halflings-regular.woff

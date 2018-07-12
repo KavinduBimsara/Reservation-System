@@ -12,7 +12,7 @@ class CreateCurrenciesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->char('code');
-            $table->softDeletes();
+            $table->string('slug');
             $table->timestamps();
         });
     }

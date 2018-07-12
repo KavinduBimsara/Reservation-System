@@ -14,15 +14,12 @@ class CurrenciesController extends Controller
     {
         $currency = Currency::latest();
 
-        return Datatables::of($currency)
-            ->editColumn('created_at', function ($date) {
-                return $date->created_at->format('jS F, Y ');
-            })
-            ->editColumn('updated_at', function ($date) {
-                return $date->updated_at ? $date->updated_at->format('jS F, Y ') : '';
-            })
-            ->addColumn('action', function ($currency) {
-                return '
+        return Datatables::of($currency)->editColumn('created_at', function ($date) {
+            return $date->created_at->format('jS F, Y ');
+        })->editColumn('updated_at', function ($date) {
+            return $date->updated_at ? $date->updated_at->format('jS F, Y ') : '';
+        })->addColumn('action', function ($currency) {
+            return '
                 <div class="btn-group">
                   <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
                           aria-expanded="false">
@@ -33,7 +30,7 @@ class CurrenciesController extends Controller
                    </i>Delete</a></li>
                   </ul>
                 </div>';
-            })->make();
+        })->make();
     }
 
     public function index()
@@ -50,7 +47,7 @@ class CurrenciesController extends Controller
     {
         Currency::create([
             'name' => $request->name,
-            'code' => $request->code
+            'code' => $request->code,
         ]);
 
         return redirect()->route('currencies.index');
@@ -73,13 +70,13 @@ class CurrenciesController extends Controller
         $currency = Currency::findOrFail($id);
 
         $request->validate([
-            'name' => ['required', 'string', 'max:255', Rule::unique('currencies')],
-            'code' => 'required|max:3',
+            'name' => ['required', 'string', 'max:255', Rule::unique('currencies')->ignore($currency->id)],
+            'code' => 'required|min:3|max:3',
         ]);
 
         $currency->update([
             'name' => $request->name,
-            'code' => $request->code
+            'code' => $request->code,
         ]);
 
         return redirect()->route('currencies.index');
@@ -88,6 +85,7 @@ class CurrenciesController extends Controller
     public function destroy($id)
     {
         $currency = Currency::findOrFail($id);
+
         $currency->delete();
 
         return redirect()->route('currencies.index');

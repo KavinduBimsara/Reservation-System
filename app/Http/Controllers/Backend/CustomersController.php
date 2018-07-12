@@ -67,7 +67,7 @@ class CustomersController extends Controller
     /**
      * Store a newly created customer in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\Store\StoreCustomersRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreCustomersRequest $request)
@@ -98,7 +98,7 @@ class CustomersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param $slug
      * @return \Illuminate\Http\Response
      */
     public function edit($slug)

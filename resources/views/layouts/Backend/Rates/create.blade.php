@@ -4,30 +4,27 @@
 
 @section('content_header')
   <h1>
-    Customers
-    <small>Create Customer</small>
+    Rate
+    <small>Create Rate</small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-    <li> <i class="fa fa-users"></i> Customers</li>
-    <li class="active"> <i class="fa fa-plus"></i> Create</li>
+    <li> <i class="fa fa-users"></i> Rate</li>
+    <li class="active"> <i class="fa fa-percent"></i> Rate</li>
   </ol>
 @stop
 
 @section('content')
 <div class="row">
-  <div class="col-md-9 col-md-offset-1">
+  <div class="col-md-6 col-md-offset-3">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title text-center">Create Customer</h3>
+        <h3 class="panel-title text-center">Create Rate</h3>
       </div>
 
       <div class="panel-body overflow-hidden">
-        @foreach($errors->all() as $e)
-          <l>{{ $e }}</l>
-        @endforeach
         <form
-                action="{{ route('customers.store') }}"
+                action="{{ route('rates.store') }}"
                 method="POST"
                 id="form"
                 autocomplete="off"
@@ -35,9 +32,10 @@
 
           {{ csrf_field() }}
 
-          @include('layouts.Backend.Customers.form', [
+          @include('layouts.Backend.Rates.form', [
            'submitButtonText' => 'Create',
-           'customer' => new \App\Models\Customer
+           'rate' => new \App\Models\Rate,
+           'rooms' => $rooms
           ])
         </form>
       </div>
@@ -45,4 +43,12 @@
 
   </div>
 
+@stop
+
+  @section('js')
+
+    <script>
+        $('#room_id').select2();
+
+    </script>
 @stop

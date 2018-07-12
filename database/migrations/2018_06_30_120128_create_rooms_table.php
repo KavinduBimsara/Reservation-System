@@ -22,8 +22,6 @@ class CreateRoomsTable extends Migration
             $table->text('description');
             $table->softDeletes();
             $table->timestamps();
-
-            $table->foreign('room_type_id')->references('id')->on('room_types');
         });
 
         Schema::create('amenity_room', function (Blueprint $table) {

@@ -112,31 +112,55 @@ return [
         [
             'text' => 'Dashboard',
             'icon' => 'dashboard',
-            'url'  => '#',
+            'url' => 'home',
         ],
-
-        ['text'    => 'Access Control List',
-        'icon'     => 'lock',
-        'submenu'  => [
-            [
-                'text' => 'Users',
-                'url'  => 'admin/users',
-                'icon' => 'users',
+        [
+            'text' => 'Access Control List',
+            'icon' => 'lock',
+            'submenu' => [
+                [
+                    'text' => 'Users',
+                    'url' => 'admin/users',
+                    'icon' => 'users',
+                ],
+                [
+                    'text' => 'Permission',
+                    'url' => '#',
+                    'icon' => 'key',
+                ],
+                [
+                    'text' => 'Roles',
+                    'url' => '#',
+                    'icon' => 'lock',
+                ],
             ],
-
-            [
-                'text' => 'Roles',
-                'url'  => '#',
-                'icon' => 'lock',
-            ],
-
+        ],
 
         [
             'text' => 'Currency',
-            'url'  => 'admin/currency',
+            'url' => 'admin/currencies',
             'icon' => 'bitcoin',
         ],
-
+        [
+            'text' => 'Rates',
+            'url' => 'admin/rates',
+            'icon' => 'percent',
+        ],
+        [
+            'text' => 'Customers',
+            'url' => 'admin/customers',
+            'icon' => 'users',
+        ],
+        [
+            'text' => 'Reservations',
+            'url' => 'admin/reservations',
+            'icon' => 'shopping-bag',
+        ],
+        [
+            'text' => 'Amenities',
+            'url' => 'admin/amenities',
+            'icon' => 'wifi',
+        ],
         [
             'text' => 'Room Details',
             'icon' => 'bed',
@@ -144,96 +168,53 @@ return [
             'submenu' => [
                 [
                     'text' => 'Rooms',
-                    'url'  => 'admin/rooms',
+                    'url' => 'admin/rooms',
                     'icon' => 'bed',
                 ],
                 [
                     'text' => 'Room Types',
-                    'url'  => 'admin/room-type',
+                    'url' => 'admin/room-type',
                     'icon' => 'clone',
                 ],
-
-            [
-                'text' => 'Permission',
-                'url'  => '#',
-                'icon' => 'key',
-            ],
-
-        ],
-    ],
-
-    [
-        'text' => 'Customers',
-        'url'  => 'admin/customers',
-        'icon' => 'users',
-    ],
-
-    [
-        'text' => 'Reservations',
-        'url'  => 'admin/reservations',
-        'icon' => 'shopping-bag',
-    ],
-
-    [
-        'text' => 'Amenities',
-        'url'  => 'admin/amenities',
-        'icon' => 'wifi',
-    ],
-
-    [
-        'text' => 'Room Details',
-        'icon' => 'bed',
-
-        'submenu' => [
-            [
-                'text' => 'Rooms',
-                'url'  => 'admin/rooms',
-                'icon' => 'bed',
-            ],
-            [
-                'text' => 'Room Types',
-                'url'  => 'admin/room-type',
-                'icon' => 'clone',
             ],
         ],
-    ]
 
-],
+    ],
 
-        /*
-        |--------------------------------------------------------------------------
-        | Menu Filters
-        |--------------------------------------------------------------------------
-        |
-        | Choose what filters you want to include for rendering the menu.
-        | You can add your own filters to this array after you've created them.
-        | You can comment out the GateFilter if you don't want to use Laravel's
-        | built in Gate functionality
-        |
-        */
+    /*
+    |--------------------------------------------------------------------------
+    | Menu Filters
+    |--------------------------------------------------------------------------
+    |
+    | Choose what filters you want to include for rendering the menu.
+    | You can add your own filters to this array after you've created them.
+    | You can comment out the GateFilter if you don't want to use Laravel's
+    | built in Gate functionality
+    |
+    */
 
-        'filters' => [
-    JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
-    JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
-    JeroenNoten\LaravelAdminLte\Menu\Filters\SubmenuFilter::class,
-    JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
-    JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
-],
+    'filters' => [
+        JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
+        JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
+        JeroenNoten\LaravelAdminLte\Menu\Filters\SubmenuFilter::class,
+        JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
+        JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+    ],
 
-        /*
-        |--------------------------------------------------------------------------
-        | Plugins Initialization
-        |--------------------------------------------------------------------------
-        |
-        | Choose which JavaScript plugins should be included. At this moment,
-        | only DataTables is supported as a plugin. Set the value to true
-        | to include the JavaScript file from a CDN via a script tag.
-        |
-        */
+    /*
+    |--------------------------------------------------------------------------
+    | Plugins Initialization
+    |--------------------------------------------------------------------------
+    |
+    | Choose which JavaScript plugins should be included. At this moment,
+    | only DataTables is supported as a plugin. Set the value to true
+    | to include the JavaScript file from a CDN via a script tag.
+    |
+    */
 
-        'plugins' => [
-    'datatables' => true,
-    'select2'    => true,
-    'chartjs'    => false,
-],
-    ];
+    'plugins' => [
+        'datatables' => true,
+        'select2' => true,
+        'chartjs' => false,
+    ],
+];
