@@ -1,4 +1,4 @@
-# Reservation System ![StyleCI](https://github.styleci.io/repos/138739840/shield?branch=master) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![Build Status](https://travis-ci.org/M-Abdullahi/Reservation-System.svg?branch=master)](https://travis-ci.org/M-Abdullahi/Reservation-System) [![Coverage Status](https://coveralls.io/repos/github/M-Abdullahi/Reservation-System/badge.svg?branch=master)](https://coveralls.io/github/M-Abdullahi/Reservation-System?branch=master)
+# Reservation System ![StyleCI](https://github.styleci.io/repos/138739840/shield?branch=master) [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) [![Build Status](https://travis-ci.org/M-Abdullahi/Reservation-System.svg?branch=master)](https://travis-ci.org/M-Abdullahi/Reservation-System)
 This is an open source Reservation system project that is built using Laravel 5.5. Project is still in development
 
 ## Installation
