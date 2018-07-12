@@ -69,12 +69,14 @@ class CustomersController extends Controller
     /**
      * Store a newly created customer in storage.
      *
-<<<<<<< HEAD
-     * @param \App\Http\Requests\Store\StoreCustomersRequest $request
-=======
-     * @param \Illuminate\Http\Request $request
+     * <<<<<<< HEAD
      *
->>>>>>> 55e324fc7e83f28ce194ba3293ff79da5f040599
+     * @param \App\Http\Requests\Store\StoreCustomersRequest $request
+     *                                                                =======
+     * @param \Illuminate\Http\Request                       $request
+     *
+     * >>>>>>> 55e324fc7e83f28ce194ba3293ff79da5f040599
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreCustomersRequest $request)
@@ -106,12 +108,14 @@ class CustomersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-<<<<<<< HEAD
+     * <<<<<<< HEAD
+     *
      * @param $slug
-=======
+     * =======
      * @param int $id
      *
->>>>>>> 55e324fc7e83f28ce194ba3293ff79da5f040599
+     * >>>>>>> 55e324fc7e83f28ce194ba3293ff79da5f040599
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($slug)

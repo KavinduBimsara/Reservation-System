@@ -112,25 +112,25 @@ return [
         [
             'text' => 'Dashboard',
             'icon' => 'dashboard',
-            'url' => 'home',
+            'url'  => 'home',
         ],
         [
-            'text' => 'Access Control List',
-            'icon' => 'lock',
+            'text'    => 'Access Control List',
+            'icon'    => 'lock',
             'submenu' => [
                 [
                     'text' => 'Users',
-                    'url' => 'admin/users',
+                    'url'  => 'admin/users',
                     'icon' => 'users',
                 ],
                 [
                     'text' => 'Permission',
-                    'url' => '#',
+                    'url'  => '#',
                     'icon' => 'key',
                 ],
                 [
                     'text' => 'Roles',
-                    'url' => '#',
+                    'url'  => '#',
                     'icon' => 'lock',
                 ],
             ],
@@ -138,27 +138,27 @@ return [
 
         [
             'text' => 'Currency',
-            'url' => 'admin/currencies',
+            'url'  => 'admin/currencies',
             'icon' => 'bitcoin',
         ],
         [
             'text' => 'Rates',
-            'url' => 'admin/rates',
+            'url'  => 'admin/rates',
             'icon' => 'percent',
         ],
         [
             'text' => 'Customers',
-            'url' => 'admin/customers',
+            'url'  => 'admin/customers',
             'icon' => 'users',
         ],
         [
             'text' => 'Reservations',
-            'url' => 'admin/reservations',
+            'url'  => 'admin/reservations',
             'icon' => 'shopping-bag',
         ],
         [
             'text' => 'Amenities',
-            'url' => 'admin/amenities',
+            'url'  => 'admin/amenities',
             'icon' => 'wifi',
         ],
         [
@@ -168,12 +168,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Rooms',
-                    'url' => 'admin/rooms',
+                    'url'  => 'admin/rooms',
                     'icon' => 'bed',
                 ],
                 [
                     'text' => 'Room Types',
-                    'url' => 'admin/room-type',
+                    'url'  => 'admin/room-type',
                     'icon' => 'clone',
                 ],
             ],
@@ -214,7 +214,7 @@ return [
 
     'plugins' => [
         'datatables' => true,
-        'select2' => true,
-        'chartjs' => false,
+        'select2'    => true,
+        'chartjs'    => false,
     ],
 ];
