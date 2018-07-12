@@ -20,7 +20,7 @@ class ReservationsController extends Controller
      */
     public function dataTable()
     {
-        $reservations = Reservation::with('rooms')->select('*')->get();
+        $reservations = Reservation::with('rooms', 'customer')->select('*')->get();
 
         return DataTables::of($reservations)->editColumn('created_at', function ($date) {
             return $date->created_at->format('jS F, Y. h:m:s');
