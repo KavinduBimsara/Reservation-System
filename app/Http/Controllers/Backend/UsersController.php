@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\User;
-use Yajra\Datatables\Datatables;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
 use App\Http\Requests\Store\StoreUserRequest;
 use App\Http\Requests\Update\UpdateUserRequest;
+use App\User;
+use Illuminate\Support\Facades\Session;
+use Yajra\Datatables\Datatables;
 
 class UsersController extends Controller
 {
     /**
-     * @return mixed
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function dataTable()
     {
@@ -63,7 +64,8 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUserRequest $request)
@@ -76,7 +78,8 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -87,7 +90,8 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -101,7 +105,8 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param UpdateUserRequest $request
-     * @param  int $id
+     * @param int               $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateUserRequest $request, $id)
@@ -120,7 +125,8 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -2,22 +2,24 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\Room;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Store\StoreRoomRequest;
+use App\Http\Requests\Update\UpdateRoomRequest;
 use App\Models\Amenity;
+use App\Models\Room;
 use App\Models\RoomType;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-use App\Http\Requests\Store\StoreRoomRequest;
-use App\Http\Requests\Update\UpdateRoomRequest;
 
 class RoomsController extends Controller
 {
     /**
      * Fetch JSON listing of the room resource.
-     * @return mixed
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function dataTable()
     {
@@ -74,6 +76,7 @@ class RoomsController extends Controller
      * Store a newly created room in storage.
      *
      * @param StoreRoomRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRoomRequest $request)
@@ -93,7 +96,8 @@ class RoomsController extends Controller
     /**
      * Display the specified room.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
@@ -104,6 +108,7 @@ class RoomsController extends Controller
      * Show the form for editing the specified room.
      *
      * @param  $slug
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($slug)
@@ -122,6 +127,7 @@ class RoomsController extends Controller
      *
      * @param UpdateRoomRequest $request
      * @param $slug
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $slug)
@@ -151,8 +157,10 @@ class RoomsController extends Controller
      * Remove the specified room from storage.
      *
      * @param $slug
-     * @return \Illuminate\Http\Response
+     *
      * @throws \Exception
+     *
+     * @return \Illuminate\Http\Response
      */
     public function destroy($slug)
     {

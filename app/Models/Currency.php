@@ -16,8 +16,12 @@ class Currency extends Model
     */
 
     protected $fillable = [
+<<<<<<< HEAD
         'name',
         'code',
+=======
+        'name', 'code',
+>>>>>>> 55e324fc7e83f28ce194ba3293ff79da5f040599
     ];
 
     /**

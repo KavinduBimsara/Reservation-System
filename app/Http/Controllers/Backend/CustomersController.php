@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Store\StoreCustomersRequest;
 use App\Models\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
-use App\Http\Requests\Store\StoreCustomersRequest;
 
 class CustomersController extends Controller
 {
     /**
      * Fetch JSON listing of the customer resource.
-     * @return mixed
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function dataTable()
     {
@@ -67,7 +69,12 @@ class CustomersController extends Controller
     /**
      * Store a newly created customer in storage.
      *
+<<<<<<< HEAD
      * @param \App\Http\Requests\Store\StoreCustomersRequest $request
+=======
+     * @param \Illuminate\Http\Request $request
+     *
+>>>>>>> 55e324fc7e83f28ce194ba3293ff79da5f040599
      * @return \Illuminate\Http\Response
      */
     public function store(StoreCustomersRequest $request)
@@ -87,7 +94,8 @@ class CustomersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -98,7 +106,12 @@ class CustomersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+<<<<<<< HEAD
      * @param $slug
+=======
+     * @param int $id
+     *
+>>>>>>> 55e324fc7e83f28ce194ba3293ff79da5f040599
      * @return \Illuminate\Http\Response
      */
     public function edit($slug)
@@ -111,8 +124,9 @@ class CustomersController extends Controller
     /**
      * Update the specified customer in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @param $slug
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $slug)
@@ -121,8 +135,8 @@ class CustomersController extends Controller
 
         $request->validate([
             'first_name'  => 'required|string|max:255',
-            'last_name'  => 'required|string|max:255',
-            'email' => ['required', 'string', 'max:255', Rule::unique('customers')->ignore($customer->id)],
+            'last_name'   => 'required|string|max:255',
+            'email'       => ['required', 'string', 'max:255', Rule::unique('customers')->ignore($customer->id)],
         ]);
 
         $customer->update([
@@ -140,7 +154,8 @@ class CustomersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Store\StoreRoomTypeRequest;
 use App\Models\Room;
 use App\Models\RoomType;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-use App\Http\Requests\Store\StoreRoomTypeRequest;
 
 class RoomTypeController extends Controller
 {
     /**
      * Fetch JSON listing of the room type resource.
-     * @return mixed
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function dataTable()
     {
@@ -67,6 +69,7 @@ class RoomTypeController extends Controller
      * Store a newly created roomType in storage.
      *
      * @param StoreRoomTypeRequest $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRoomTypeRequest $request)
@@ -85,7 +88,8 @@ class RoomTypeController extends Controller
     /**
      * Display the specified roomType.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -96,7 +100,8 @@ class RoomTypeController extends Controller
     /**
      * Show the form for editing the specified roomType.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($slug)
@@ -109,8 +114,9 @@ class RoomTypeController extends Controller
     /**
      * Update the specified roomType in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $slug)
@@ -135,7 +141,8 @@ class RoomTypeController extends Controller
     /**
      * Remove the specified roomType from storage.
      *
-     * @param  int $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($slug)
